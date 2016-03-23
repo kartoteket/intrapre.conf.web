@@ -1,0 +1,198 @@
+@mixin clearfix {
+    &:after {
+        display: table;
+        clear: both;
+        content: "";
+    }
+}
+
+@mixin plainlinks {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+        color: color(accent);
+    }
+}
+
+
+
+// Disable OS-level styles
+@mixin no-appearance {
+    -webkit-appearance: none;
+       -moz-appearance: none;
+}
+
+@mixin fade($property: background, $duration: .2s) {
+    transition: $property $duration ease-in-out 0s;
+}
+
+
+/**
+ * Echo generic color classes
+ */
+@mixin echo-colors($name, $value) {
+
+    @if type-of($value) == string {
+      $value : unquote($value);
+    }
+
+    .bg-color-#{"" + $name} {
+        background-color: $value;
+    }
+
+    .color-#{"" + $name} {
+        color: $value;
+    }
+
+    .color-#{"" + $name}-name:after {
+        text-transform: capitalize;
+        content: '#{$name}';
+    }
+
+    .color-#{"" + $name}-value:after {
+        content: '#{$value}';
+    }
+}
+
+
+/**
+ * Echo generic size classes
+ */
+// @mixin size($size: grow, $total: $total-columns) {
+//     @if (type-of($size) == 'number') {
+//         $pct: percentage($size / $total);
+//         flex-basis: $pct !important;
+//         max-width: $pct;        // max-width prevents columns from wrapping early in IE10/11
+//     } @else if ($size == shrink) {
+//         flex-basis: auto;
+//         overflow: visible;
+//     } @else if ($size == grow) {
+//         flex: 1 1 auto;
+//     }
+// }
+
+
+/**
+ * Utility function for mixin font-size
+ * @param  {mixed} $fs-font-size     - Can be either a number (font-size), list (font-size, line-height)
+ *
+ * Adapted from https://github.com/inuitcss/tools.mixins
+ */
+@mixin make-font-size($fs-font-size) {
+
+  $font-size          : $base-font-size;
+  $base-font-size     : strip-unit($base-font-size);
+  $line-height        : auto;
+  $base-line-height   : strip-unit($base-line-height);
+
+  // If $fs-font-size is a list (24, 1.5), include both font-size and line-height
+  @if type-of($fs-font-size) == "list" {
+    $font-size : strip-unit(nth($fs-font-size, 1));
+    @if (length($fs-font-size) > 1) {
+        $line-height : nth($fs-font-size, 2);
+    }
+
+  // font-size is a number
+  } @else {
+    $font-size : strip-unit($fs-font-size);
+  }
+
+
+  // calculate line-height
+  @if ($line-height == auto or $line-height == null) {
+    $line-height: ceil($font-size / $base-line-height) * ($base-line-height / $font-size);
+  } @else {
+      @if (type-of($line-height) == number or $line-height == inherit or $line-height == normal) {
+          $line-height: $line-height;
+      }
+      @elseif ($line-height != none and $line-height != false) {
+          @warn "D’oh! ‘#{$line-height}’ is not a valid value for `line-height`."
+      }
+  }
+
+  // echo css
+  font-size: ($font-size / $base-font-size) * 1rem;
+  @if ($line-height != false) {
+    line-height: $line-height;
+  }
+}
+
+
+/**
+ * font-size mixin
+ * @param  {[type]} $font-size        - Can be either a key or a number
+ * @param  {[type]} $line-heights     - false, auto, inherit or number
+ */
+@mixin font-size($font-size, $line-height:false) {
+
+  // the font-size is key in $font-sizes, lets look there
+  @if map-has-key($font-sizes,$font-size) {
+
+    $map: map-get($font-sizes,$font-size);
+
+    @each $breakpoint, $font-size in $map {
+
+      // default font-size (no media queries)
+      @if $breakpoint == null {
+        @include make-font-size($font-size);
+
+      // with media queries
+      } @else {
+
+        // $breakpoint can both be literal ["640px"] or a key that exists in $breakpoints, and then we use that value.
+        @if map-has-key($breakpoints, $breakpoint) {
+          $breakpoint: map-get($breakpoints, $breakpoint);
+        }
+
+        @media screen and (min-width: $breakpoint) {
+          @include make-font-size($font-size);
+        }
+      }
+    }
+
+  // simple literal font-size ["20"]
+  } @else {
+
+    // wrap font-size and line-height in a list if line-height is passed
+    @if($line-height) {
+      $font-size : ($font-size, $line-height);
+    }
+
+    @include make-font-size($font-size);
+  }
+}
+
+// forked  (and adapted) from https://github.com/inuitcss/tools.mixins
+// @mixin font-size-old($font-size, $line-height: auto, $weight: $base-font-weight) {
+
+//     $font-size          : strip-unit($font-size);
+//     $base-font-size     : strip-unit($base-font-size);
+//     $base-line-height   : strip-unit($base-line-height);
+
+//     @if ($line-height == auto or $line-height == null) {
+//         $line-height: ceil($font-size / $base-line-height) * ($base-line-height / $font-size);
+
+//     } @else {
+
+//         @if (type-of($line-height) == number or $line-height == inherit or $line-height == normal) {
+//             $line-height: $line-height;
+//         }
+
+//         @elseif ($line-height != none and $line-height != false) {
+
+//             @warn "D’oh! ‘#{$line-height}’ is not a valid value for `line-height`."
+//         }
+
+//     }
+
+// //    font-size: $font-size * 1px;
+//     font-size: ($font-size / $base-font-size) * 1rem;
+
+//     @if ($weight != $base-font-weight) {
+//         font-weight: $weight;
+//     }
+//     @if ($line-height != false) {
+//         line-height: $line-height;
+//     }
+// }

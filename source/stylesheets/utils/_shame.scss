@@ -1,0 +1,12 @@
+// .pagewrap {
+
+//   min-width: rem-calc(800 + (space(double)));
+
+// }
+
+// In the query-builder, we cap the size here to aligne everything. 160px is just enough to display a date and little enough not to break the line...
+@include breakpoint(max large) {
+    .form__input--datefield {
+      max-width: 160px;
+    }
+}

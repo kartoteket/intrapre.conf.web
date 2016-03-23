@@ -1,0 +1,137 @@
+/*------------------------------------*\
+    # Settings
+\*------------------------------------*/
+$debug : true;
+
+/**
+ * base sizes
+ */
+$base-font-size     : 16;
+$base-line-height   : 24; // 1.5
+
+/**
+ * Type
+ */
+$base-font          : "Fira Sans", "Helvetica Neue", Helvetica, Arial, sans serif;
+$base-font-weight   : 400;
+$mono-font          : "Fira Mono", "Lucida Console", "Lucida Sans Typewriter", monaco, "Bitstream Vera Sans Mono", monospace;
+
+
+/**
+ * Grid
+ */
+$grid-columns       : 12;
+$grid-gutter-small  : round($base-line-height/2);
+$grid-gutter        : $base-line-height;
+
+/**
+ * Colors
+ */
+$colors : (
+
+    // UI colors
+    primary-text       : #111,
+    header-text         :#444,
+    secondary-text     : #777,
+    hints-text         : #aaa,
+    disabled           : #aaa,
+    dividers           : #ddd,
+    divider            : #ddd,      // alias
+    background         : #fff,
+
+    primary            : #26c9de,
+                      // #00bbd3
+    accent             : #fd5822,
+                      // #ff5722
+                      // #fb7C3d
+                      // #eb621e
+    info               : #bddcdd,
+    success            : #d1f7d8,
+    warning            : #ffeebf,
+    error              : #f8d0c8,
+);
+
+
+
+/**
+ * states
+ */
+// statuses
+$states : (
+    warning : warning,
+    error   : error,
+    success : success,
+    info    : info,
+
+    // aliases:
+    alert   : error,
+    active  : success,
+    true    : success,
+    partial : warning,
+    false   : warning,
+);
+
+/**
+ * breakpoints
+ */
+$breakpoints: (
+    small:    480px,
+    medium:   741px,
+    large:    980px,    // 960 + 10 +10
+    larger:  1300px,    // 1280 + 10 +10
+    xlarge:  1441px,
+    xxlarge: 1921px
+);
+
+/**
+ * $font-sizes
+ * number or list when with line-height "(24, 1.5)""
+ * keys refer to $breakpoints [small, medium, large, larger, xlarge, xxlarge]
+ */
+$font-sizes: (
+    'heading-1' : (
+      null  : 24,
+      small: 30,
+    ),
+    heading-2 : (
+      null  : 19,
+      small: 25,
+    ),
+    heading-3 : (
+      null  : 16,
+      small: 19,
+    ),
+    heading-4 : (
+      null  : 14,
+    ),
+    heading-5 : (
+      null  : 14,
+    ),
+    paragraph : (
+      null  : 14,
+      small: 16,
+    ),
+    helper : (
+      null  : 12,
+      small: 12,
+    ),
+);
+
+/**
+ * spacings
+ */
+$spacings : (
+    base    : $base-line-height,
+    quarter : $base-line-height / 4,
+    half    : $base-line-height / 2,
+    double  : $base-line-height * 2
+);
+
+
+/**
+ * lists
+ */
+$widths : (5, 10, 15, 20, 25, 30, 33, 40, 45, 50, 60, 66, 67, 68, 70, 75, 80, 90, 100);
+$edges : ('all', 'top', 'right', 'bottom', 'left');
+$directions: ('left', 'right', 'center', 'justify');
+

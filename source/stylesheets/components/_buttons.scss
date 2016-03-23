@@ -1,0 +1,218 @@
+/*------------------------------------*\
+    # Buttons
+    Forked and adapted from Harry Roberts InuitCSS
+    https://github.com/inuitcss/objects.buttons
+\*------------------------------------*/
+
+/**
+ * A simple button object.
+ */
+$btn-padding:         space(half) !default;
+$btn-padding-thin:    space(quarter) !default;
+$btn-background:      color(dividers) !default;
+$btn-background-hover:color(dividers, dark) !default;
+$btn-color:           color(primary-text) !default;
+$btn-border-width:    1px !default;
+$btn-border-style:    solid !default;
+$btn-border-color:    $btn-background !default;
+$btn-radius:          3px !default;
+
+
+/**
+ * 1. Allow us to style box model properties.
+ * 2. Line different sized buttons up a little nicer.
+ * 3. Make buttons inherit font styles (often necessary when styling `input`s as
+ *    buttons).
+ * 4. Reset/normalize some styles.
+ * 5. Force all button-styled elements to appear clickable.
+ * 6. Fixes odd inner spacing in IE7.
+ * 7. Subtract the border size from the padding value so that buttons do not
+ *    grow larger as we add borders.
+ */
+.btn,
+%btn {
+  display: inline-block; /* [1] */
+  margin: 0; /* [4] */
+//  padding: $btn-padding - $btn-border-width ($btn-padding - $btn-border-width)*2; /* [7] */
+  padding: rem-calc(space(quarter) space(base));
+  background-color: $btn-background;
+  font: inherit; /* [3] */
+  text-align: center; /* [4] */
+  cursor: pointer; /* [5] */
+  overflow: visible; /* [6] */
+  vertical-align: middle; /* [2] */
+
+  @if($btn-border-width != 0) {
+    border: $btn-border-width $btn-border-style $btn-border-color;
+  } @else {
+    border: 0; /* [4] */
+  }
+
+  @if($btn-radius != 0) {
+    border-radius: $btn-radius;
+  }
+
+  &,
+  &:hover,
+  &:active,
+  &:focus {
+    border: 0;
+    color: $btn-color;
+    text-decoration: none; /* [4] */
+  }
+
+  &:hover {
+    background-color: $btn-background-hover;
+  }
+
+  /**
+   * Fix a Firefox bug whereby `input type="submit"` gains 2px extra padding.
+   */
+  &::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+  }
+
+
+  &--primary {
+    background-color: color(primary);
+    color: $btn-color;
+
+    &:focus,
+    &:active,
+    &:hover {
+      color: $btn-color;
+    }
+
+    &:hover {
+      background-color: color(primary, dark);
+    }
+
+    &.disabled {
+      @extend %btn--disabled;
+    }
+  }
+
+  &--thin {
+    padding-left:  $btn-padding-thin - $btn-border-width; /* [7] */
+    padding-right:  $btn-padding-thin - $btn-border-width; /* [7] */
+  }
+
+}
+
+%btn--disabled,
+.btn--disabled {
+  cursor: default;
+  opacity: .3;
+}
+
+
+/*
+<span class="btn split-btn">
+    <a class="split-btn__default">Label</a>
+    <span class="split-btn__expand js-split-btn">
+        <svg style="width:24px;height:24px; display:inline-block; vertical-align: middle" viewBox="0 0 24 24">
+            <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+        </svg>
+        <div class="split-btn__drop">
+            <nav>
+                <ul class="nav nav--vertical">
+                    <li class="nav__item"><a>Option 1</a></li>
+                    <li class="nav__item"><a>Option 2</a></li>
+                </ul>
+            </nav>
+            <div class="split-btn__overlay"></div>
+        </div>
+    </span>
+</span>
+*/
+
+
+/**
+ * split buttons
+ *
+ * 1. z-index to control overlay as click zone, but dropdown options on top
+ */
+
+%split-btn,
+.split-btn {
+
+  position: relative;
+  padding: 0;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: $btn-background-hover;
+    color: $btn-color;
+
+    a {
+      color: inherit;
+    }
+  }
+
+  // the primary button
+  &__default {
+    display: inline-block;
+    padding: $btn-padding - $btn-border-width ($btn-padding - $btn-border-width)*2; /* [7] */
+  }
+
+  // the dropdown trigger
+  &__expand {
+    display: inline-block;
+    padding: $btn-padding - $btn-border-width; /* [7] */
+    border-left: 1px solid #fff;
+
+    &:hover,
+    &:active,
+    &:focus {
+      border-color: #fff;
+    }
+
+    svg {
+      fill: inherit;
+    }
+  }
+
+  // the dropdown
+  &__drop {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    border-top: 1px solid #fff;
+    background-color: $btn-background;
+    color: color(secondary-text);
+    white-space: nowrap;
+    z-index: 1;
+
+    @if($btn-radius != 0) {
+      border-bottom-right-radius: $btn-radius;
+      border-bottom-left-radius: $btn-radius;
+    }
+
+
+    // temp fix
+    .nav__item a {
+      padding: rem-calc(space(half) space(base));
+
+      &:hover {
+        background-color: $btn-background-hover;
+        color: $btn-color;
+      }
+    }
+  }
+
+  &__options {
+    position: relative;
+    z-index: 101; /* 1 */
+  }
+
+
+  &__overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100; /* 1 */
+  }
+}

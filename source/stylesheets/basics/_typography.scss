@@ -1,0 +1,124 @@
+/*------------------------------------*\
+    # Headings
+
+    By Harry Roberts
+    https://github.com/inuitcss/trumps.headings
+
+  NB: See https://www.smashingmagazine.com/2015/06/responsive-typography-with-sass-maps/
+
+\*------------------------------------*/
+
+/**
+ * Headings 1–6’s corresponding Greek-alphabet abstract classes for double-
+ * stranded heading hierarchy: csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css
+ *
+ * Use these helper classes to cause other elements to adopt the styling of the
+ * respective heading, e.g.:
+ *
+   <h2 class="alpha">Lorem ipsum</h2>
+ *
+ */
+
+h1,
+.alpa,
+%alpa {
+  @include font-size(heading-1);
+}
+
+h2,
+.beta,
+%beta {
+  @include font-size(heading-2);
+}
+
+h3,
+.gamma,
+%gamma {
+  @include font-size(heading-3);
+}
+
+h4 {
+  @include font-size(heading-4);
+  margin-bottom: rem-calc((space(quarter) - 1));
+  border-bottom: 1px solid color(divider);
+}
+
+  .delta,
+  %delta {
+    @include font-size(heading-4);
+  }
+
+h5 {
+    @include font-size(heading-5);
+}
+
+h1, h2, h3, h4, h5 {
+    font-weight: 500;
+    color: color(header-text);    // softens big and bold type
+}
+
+h4,
+.uppercase,
+%uppercase {
+    text-transform: uppercase;
+}
+
+.paragraph,
+%paragraph {
+    font-family: $base-font;
+    @include font-size(paragraph);
+    color: color(primary-text);
+}
+
+.helper,
+%helper {
+    @include font-size(12);
+    color: color(secondary-text);
+}
+
+.lead,
+%lead {
+
+    p+p {
+        margin-top: rem-calc(space(base));
+    }
+
+    a {
+        color: inherit;
+    }
+}
+
+/* move to helpers ??!? */
+.light-weight,
+%light-weight {
+    font-weight: 400;
+}
+
+
+/**
+ * Links
+ */
+
+a {
+  color: color(primary, dark);
+
+  &:hover {
+    border-color: color(accent);
+    color: color(accent);
+  }
+}
+
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+li a,
+.plainlinks a,
+a.plainlinks {
+    @include plainlinks;
+}
+
+p a {
+    color: inherit; // TODO: kan sikkert ta denne bort en del andre stedet
+}

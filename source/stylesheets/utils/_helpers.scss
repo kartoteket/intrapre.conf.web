@@ -1,0 +1,181 @@
+// Se også http://foundation.zurb.com/docs/utility-classes.html
+
+// create color classes
+@each $name, $value in $colors {
+  @include echo-colors($name, $value);
+}
+
+
+%hide {
+  display: none !important;
+}
+
+.inline {
+  display: inline-block;
+}
+
+.fullwidth {
+  width: 100%;
+}
+
+.full-height {
+  height: 100%;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+// show/hide for breakpoint
+@each $bp, $width in $breakpoints {
+
+  $next-bp : map-next($breakpoints, $bp);
+
+  .show-for-#{$bp}-up {
+    @extend %hide;
+
+    @include breakpoint($bp) {
+      display: inline-block !important;
+    }
+  }
+
+  .show-for-#{$bp}-only {
+    @extend %hide;
+    @if ($bp == 'small'){
+      @include breakpoint(max $bp) {
+        display: inline-block !important;
+      }
+    } @else {
+      @include breakpoint($bp $next-bp) {
+        display: inline-block !important;
+      }
+    }
+  }
+
+  .hide-for-#{$bp}-up {
+    @include breakpoint($bp) {
+      display: none !important;
+    }
+  }
+
+  .hide-for-#{$bp}-only {
+    @include breakpoint($bp $next-bp) {
+      display: none !important;
+    }
+  }
+}
+
+
+
+/**
+ * Clearfix
+ */
+.clearfix {
+  @include clearfix;
+}
+
+
+/**
+ * Flush
+ *  -removes margins
+ */
+@each $edge in $edges {
+    .flush--#{$edge} {
+        @if $edge == 'all' {
+            margin: 0 !important;
+        } @else {
+            margin-#{$edge}: 0 !important;
+        }
+    }
+}
+
+/**
+ * Hard
+ * - removes padding
+ */
+@each $edge in $edges {
+    .hard--#{$edge} {
+        @if $edge == 'all' {
+            padding: 0 !important;
+        } @else {
+            padding-#{$edge}: 0 !important;
+        }
+    }
+
+    .soft--#{$edge} {
+        @if $edge == 'all' {
+            padding: rem-calc(space(quarter));
+        } @else {
+            padding-#{$edge}: rem-calc(space(quarter)) !important;
+        }
+    }
+
+}
+
+
+/**
+ * Padded and gutters
+ * - adds a padding / margin
+ * $edges: all, top, right, bottom, left
+ * $spacing: base, quarter, half, double
+ * Example .padded-quarter--top
+
+ */
+@each $edge in $edges {
+
+  @each $key, $value in $spacings {
+
+    @if $edge == 'all' {
+      .padded-#{$key} {
+        padding: rem-calc($value);
+      }
+
+      .margin-#{$key} {
+        margin: rem-calc($value);
+      }
+
+    } @else {
+      .padded-#{$key}--#{$edge} {
+        padding-#{$edge}: rem-calc($value) !important;
+      }
+
+      .margin-#{$key}--#{$edge} {
+        margin-#{$edge}: rem-calc($value) !important;
+      }
+
+    }
+
+  }
+}
+
+
+/**
+ * Align
+ * - align texts
+ */
+@each $direction in $directions {
+    %text--#{$direction},
+    .text--#{$direction} {
+        text-align: #{$direction} !important;
+    }
+}
+
+/**
+ * Alerts / States
+ */
+//statuses
+.state,
+%state,
+.alert,
+%alert {
+    @each $key, $value in $states {
+        &--#{$key} {
+            background-color: color($value);
+        }
+    }
+}
+
+
+/**
+ * Misc
+ */

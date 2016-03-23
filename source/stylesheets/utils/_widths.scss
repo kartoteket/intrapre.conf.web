@@ -1,0 +1,49 @@
+
+/**
+ * Widths
+ * widths classes.
+ *
+    .width-75\%
+ *
+ */
+@mixin echo-widths($width) {
+    flex: 0 0 $width * 1% !important;
+    width: $width * 1%;
+
+    // make sure flex-items grow when flex-direction is column
+    .grid--vertical &:not([class*="shrink"])  {
+        flex: 1 !important;
+    }
+
+     @include breakpoint(max small) {
+        .grid--small--vertical & {
+           flex: 1 !important;
+        }
+    }
+
+     @include breakpoint(max medium) {
+        .grid--medium--vertical & {
+           flex: 1 !important;
+        }
+    }
+
+}
+
+@each $width in $widths {
+    .width-#{$width}\% {
+        @include echo-widths($width);
+    }
+}
+
+@each $bp, $null in $breakpoints {
+    $query: if($bp == small, 'max' $bp, $bp);
+
+    @include breakpoint($query) {
+        @each $width in $widths {
+            .width-#{$bp}-#{$width}\% {
+                @include echo-widths($width);
+            }
+        }
+    }
+}
+

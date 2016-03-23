@@ -1,0 +1,46 @@
+scss_files: 'source/stylesheets/**/*.scss'
+exclude: 'source/stylesheets/vendors/**'
+
+linters:
+  ColorVariable:
+    enabled: false
+  Comment:
+    enabled: false
+  EmptyLineBetweenBlocks:
+    enabled: true
+  IdSelector:
+    enabled: true
+  Indentation:
+    enabled: true
+    width: 2
+  ImportantRule:
+    enabled: false
+  LeadingZero:
+    enabled: true
+  NestingDepth:
+    enabled: false
+  PropertySortOrder:
+    enabled: true
+    order: smacss
+    ignore_unspecified: true
+  QualifyingElement:
+    enabled: true
+  SelectorFormat:
+    convention: hyphenated_BEM
+    ignored_types: plaveholder
+  SingleLinePerProperty:
+    enabled: true
+  SingleLinePerSelector:
+    enabled: true
+  SpaceAfterComma:
+    enabled: true
+  SpaceAfterPropertyColon:
+    enabled: true
+  SpaceAfterPropertyName:
+    enabled: true
+  StringQuotes:
+    enabled: false
+  TrailingSemicolon:
+    enabled: true
+  ZeroUnit:
+    enabled: true

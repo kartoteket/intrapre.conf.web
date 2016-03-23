@@ -1,0 +1,67 @@
+/*------------------------------------*\
+    # Forms
+    # => content editable....
+\*------------------------------------*/
+
+/**
+* Click text transforms it to text input that is editable
+* Edit icon either as label (clickable) or pseudo-class
+* 1. positioned so that we can position the edit-icon absolutely
+* 2. use flexbox to inline and display full width input-box
+* 3. make sure all items (eg any prefixed icons) are verticalyy aligned
+* 4. extra right padding for edit-icon
+* 5. make sure the we have the same line-height as context
+*/
+.inline-edit {
+  display: flex;          /* [2] */
+  position: relative;     /* [1] */
+  align-items: center;    /* [3] */
+
+  input,
+  textarea {
+    flex: 1 auto;       /* [2] */
+//        width: 90%;  Why this ??!?. Should rather be defined in context
+    // margin: rem-calc(0 0 0 (space(quarter, true)));   /* might be useful to compensate for the padding */
+    padding: rem-calc(space(quarter) (space(base) * 1) space(quarter) space(quarter));  /* [4] */
+    border: 1px solid transparent;
+    resize: none;
+    background-color: transparent;
+    line-height: inherit;        /* [2] */
+
+    &:hover {
+      cursor: pointer;
+
+      + .edit-icon {
+        color: inherit;
+      }
+    }
+
+    &:focus {
+      transition: background-color .25s;
+      border-color: color(divider);
+      background-color: #fff;
+      cursor: text;
+
+      + .edit-icon {
+        color: inherit;
+      }
+    }
+  }
+
+  /*using the label element for edit icon (best choice )*/
+  .edit-icon {
+    position: absolute;
+    right: 0;
+    padding: rem-calc(space(quarter));
+    color: color(dividers);
+    line-height: inherit;
+    white-space: nowrap;
+  }
+
+  // &:hover {
+  //     .edit-icon {
+  //         color: inherit;
+  //     }
+  // }
+
+}

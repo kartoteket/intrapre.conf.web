@@ -1,0 +1,407 @@
+/*------------------------------------*\
+    # Forms
+\*------------------------------------*/
+
+// scss-lint:disable QualifyingElement
+
+$inline-label-width: 40;
+$inline-input-width: 100 - 10 - $inline-label-width;
+
+fieldset {
+  border: 0;
+}
+
+/* Input fields  */
+input.form__input,
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="color"],
+input[type="date"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="number"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+input[list],
+input[type="file"],
+select,
+textarea {
+  padding: rem-calc(space(quarter));
+  border: 1px solid color(primary, light);
+  font-family: $base-font;
+
+  &:focus {
+    outline: none;
+  }
+
+}
+
+select {
+  width: 100%;
+  padding-right: 1.625rem;
+  border-radius: 0;
+  background: #fafafa url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20version%3D%221.1%22%20width%3D%2232%22%20height%3D%2224%22%20viewBox%3D%220%200%2032%2024%22%3E%3Cpolygon%20points%3D%220%2C0%2032%2C0%2016%2C24%22%20style%3D%22fill%3A%20black%22%3E%3C/polygon%3E%3C/svg%3E") right 10px center no-repeat;
+  background-size: 8px 8px;
+  @include no-appearance;
+}
+
+select:hover {
+  background-color: #f0f0f0;
+}
+
+select:focus {
+  outline: 0;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+
+// A basic generic form styling
+.form {
+
+  @include font-size(16);
+  font-family: $base-font;
+
+
+  /**
+   * Base form elements
+   */
+  &__input {
+    &:focus:not(select) {
+        border-color: color(primary);
+    }
+  }
+
+
+  &__label {
+    display: block;
+    margin-bottom: rem-calc(space(quarter));
+
+    + .form__helptext {
+      margin-top: rem-calc(space(quarter, true));
+    }
+
+    &--minor {
+      @include font-size(14);
+      margin-bottom: 0;
+    }
+  }
+
+  &__modifier {
+    display: block;
+    @include font-size(14);
+    color: color(primary-text);
+
+  }
+
+  &__btn {
+    @extend %btn;
+    background-color: color(primary);
+    color: color(primary-text);
+
+    &.btn--cancel {
+      background-color: transparent;
+      color: color(secondary-text);
+    }
+
+    &:hover {
+      background-color: color(primary, dark);
+      color: color(primary-text) !important;
+    }
+
+  }
+
+  &__fieldset {
+    padding: rem-calc(space(half));
+    border: 1px solid color(dividers);
+
+    &--closed {
+      padding: 0;
+      border: 0;
+
+      .form__legend {
+        margin-left: 1px;
+      }
+    }
+  }
+
+  &__legend {
+    color: color(secondary-text);
+    margin-left: rem-calc(space(half, true));
+    @include font-size(14);
+  }
+
+  input[disabled] {
+    border-color: color(disabled);
+    color: color(disabled);
+  }
+
+  // a row of multipl inputs
+  // use .width-% classes on elements to distribute width
+  &__input-row {
+    @extend %unstyled-list;
+    display: inline-flex;
+    margin-left: rem-calc(space(quarter, true));
+
+    > li {
+      flex: 0 0 auto;
+      padding-left: rem-calc(space(quarter));
+    }
+
+    .form__input {
+      width: 100%; // follow the parent widths here
+    }
+  }
+
+
+  &--compact {
+    .form__input,
+    .form__label {
+      @include font-size(14);
+    }
+
+    .form__input {
+      padding: rem-calc(space(quarter));
+    }
+  }
+}
+
+/**
+ * helptexts
+ */
+.form__helptext {
+  @include fade(all);
+  display: block;
+  @include font-size(12, 1.5);
+  color: color(secondary-text);
+
+  .field-wrapper--inline & {
+    margin-top: rem-calc(space(half, true));
+  }
+}
+.form__input {
+
+  // hide postfix helptexts by default
+  + .form__helptext--unobtrusive {
+      opacity: 0;
+      // max-height: 0;
+  }
+
+  &:focus:not(select) {
+    // show postfix helptexts on focus
+    + .form__helptext--unobtrusive {
+        opacity: 1;
+    }
+  }
+}
+
+.input-prepostfix,
+.form__input {
+  + .form__helptext {
+    margin-top: rem-calc(space(quarter));
+  }
+}
+
+/**
+* prepend and / or append lable or button to input field
+*/
+.input-prepostfix {
+  display: flex;
+  flex-wrap: nowrap;
+
+  .form__input {
+    flex: 1;
+    border-right-width: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;    }
+
+    .btn,
+    .form__btn {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+}
+
+
+/**
+* wrapper for label / input
+* Normal vertical stacking
+*
+* [1]  No margins when nested
+* [2]  parent formm can take a --inline switch that flips all child field-wrappers to inline-mode
+* [3]  tighten space when in compact mode
+*/
+.field-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+//  max-width: rem-calc(600);
+  margin-bottom: rem-calc(space(base));
+
+  .form--compact & {
+    margin-bottom: rem-calc(space(half));     /* [3] */
+  }
+
+  .form--inline & {
+    @extend %field-wrapper--inline;           /* [2] */
+  }
+
+  .field-wrapper {
+    margin-bottom: 0 !important;              /* [1] */
+  }
+
+
+  // tripple nested... (this is starting to get silly...)
+  .field-wrapper--inline .field-wrapper {
+    .form__input-wrapper,
+    .form__input,
+    .form__modifier {
+      flex: 1 auto;
+    }
+  }
+}
+
+
+/**
+* Inlined label / input
+* Puts the label and input on on single horisontal line
+*
+* [1]  Nested field-wrappers emulate the column width of inputs when inline
+* [2]  Force full column width of inputs when inline (trumphs widths set by class)
+* [3]  Inline nesten in inline converts to vertial column-display, so spacer margin is moved from left to top
+* [4]  Add top-padding to labels so that the baseline is aligned with inputs
+*/
+
+%field-wrapper--inline,
+.field-wrapper--inline {
+  flex-flow: row wrap;
+  align-items: center;
+
+  .form__label {
+    flex: 0 1 ($inline-label-width * 1%);
+    margin-right: rem-calc(space(quarter));
+    padding-top: rem-calc(space(quarter));      /* [4] */
+  }
+
+  .form__input-wrapper,
+  .form__input,
+  .form__modifier,
+  .input-prepostfix,
+  .form__input-row {
+    flex: 1 ($inline-input-width * 1%);
+  }
+
+  .form__modifier {
+    padding-left: rem-calc(space(quarter));
+  }
+
+  .form__helptext {
+    flex: 1 0 100%;
+  }
+
+
+  > .field-wrapper {
+    flex: 1 ($inline-input-width * 1%);         /* [1] */
+  }
+
+
+  // inline nested in inline...
+  .field-wrapper--inline > &,
+  .form--inline > .field-wrapper > & {
+    .form__input-wrapper,
+    .form__input,
+    .form__modifier {
+      flex: 1 auto !important;
+      width: 100% !important;                    /* [2] */
+    }
+
+    .form__modifier {
+      margin: rem-calc(space(half) 0);           /* [3] */
+    }
+  }
+}
+
+
+
+/**
+* Horisontal row of buttons
+*/
+.btn-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  // max-width: rem-calc(600);
+  margin-bottom: rem-calc(space(base));
+
+  .btn {
+    flex: 0 auto;
+
+    & + .btn {
+      margin-right: 10px;
+    }
+  }
+
+  .btn--submit {
+    order: 2;
+  }
+
+  .btn--cancel {
+    order: 1;
+  }
+}
+
+
+
+
+/*
+A select dropdown simple style class.
+- No borders, underlined, custom dropdown arrow image
+*/
+.slim-select {
+
+  display: inline-block;
+  position: relative;
+
+  &:after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    // color: #fff;
+    font-family: MaterialDesignIcons;
+    content: mdi('menu-down');
+    pointer-events: none;
+  }
+
+  &__select {
+    // width: 100%;
+    display: inline-block;
+    margin: rem-calc(0 0 0 space(quarter));
+    padding: rem-calc(0 space(base) 0 0);
+    border-width: 0 0 1px;
+    border-radius: 0;
+    border-color: color(dividers);
+    background-color: transparent;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    appearance: none;
+
+    &:hover {
+      // background-color: transparent;
+      cursor: pointer;
+    }
+
+    &:focus {
+      border-color: color(primary, dark);
+      outline: none;
+    }
+  }
+}

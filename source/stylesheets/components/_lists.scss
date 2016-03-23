@@ -1,0 +1,76 @@
+/*------------------------------------*\
+    # Legends
+\*------------------------------------*/
+
+/**
+ * List style none...
+ */
+.unstyled-list,
+%unstyled-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+
+.block-list {
+  @extend %unstyled-list;
+
+  .list__item {
+    display: block;
+    // padding: rem-calc(space(quarter) 0);
+
+    &:not(:last-child) {
+      margin: rem-calc(0 0 space(quarter));
+//      border-bottom: 1px solid color(divider);
+    }
+
+    // a {
+    //   display: block;
+    // }
+
+  }
+
+}
+
+
+.horisontal-list {
+  @extend %unstyled-list;
+
+  .list__item {
+    display: inline-block;
+  }
+
+  &--dividers {
+    .list__item:not(:last-child) {
+      margin-right: rem-calc(space(quarter));
+      padding-right: rem-calc(space(quarter));
+      border-right: 1px solid color(divider);
+
+    }
+  }
+}
+
+/**
+ * Custom counter for ordered lists
+ */
+%custom-counter,
+.custom-counter {
+
+  @extend %unstyled-list;
+
+  > li {
+    counter-increment: step-counter;
+
+    &::before {
+      margin-right: rem-calc(space(quarter));
+      padding: rem-calc(space(quarter) space(half));
+      border-radius: 3px;
+//      font-size: 80%;
+      background-color: color(primary);
+      color: white;
+      font-weight: 500;
+      content: counter(step-counter);
+    }
+  }
+}

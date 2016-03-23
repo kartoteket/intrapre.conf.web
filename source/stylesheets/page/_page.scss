@@ -1,0 +1,92 @@
+// scss-lint:disable VendorPrefix
+/*------------------------------------*\
+    #PAGE
+    Based on and adapted from Harry Roberts:
+    https://github.com/inuitcss/base.page/blob/master/_base.page.scss
+
+
+\*------------------------------------*/
+
+/**
+ * HTML
+ *
+ * High-, page-level styling.
+ *
+ * 1. Set the default `font-size` and `line-height` for the entire project,
+ *    sourced from our default variables. The `font-size` is calculated to exist
+ *    in ems, the `line-height` is calculated to exist unitlessly.
+ * 2. Force scrollbars to always be visible to prevent awkward ‘jumps’ when
+ *    navigating between pages that do/do not have enough content to produce
+ *    scrollbars naturally.
+ * 3. Ensure the page always fills at least the entire height of the viewport.
+ * 4. Prevent certain mobile browsers from automatically zooming fonts.
+ * 5. Fonts on OSX will look more consistent with other systems that do not
+ *    render text using sub-pixel anti-aliasing.
+ * 6. Set the global `box-sizing` state to `border-box`
+ */
+html {
+  height: 100%;                                           /* [3] */
+  background-color: color(background);
+  color: color(primary-text);
+  font-family: $base-font;
+  font-size: (value-as-px($base-font-size) / 16px) * 1em; /* [1] */
+  line-height: $base-line-height / $base-font-size;       /* [1] */
+  overflow-y: scroll;                                     /* [2] */
+  -webkit-text-size-adjust: 100%;                         /* [4] */
+  -ms-text-size-adjust: 100%;                             /* [4] */
+  -moz-osx-font-smoothing: grayscale;                     /* [5] */
+  -webkit-font-smoothing: antialiased;                    /* [5] */
+  box-sizing: border-box;                                 /* [6] */
+}
+
+
+/**
+ *  Body
+ *
+ * 1. Sticky footer
+ * 2. Full height body element
+ * 3. Use display:flex to control page content layout. Like full height content boxses
+ */
+
+// .page {
+//   display: flex;                                  /* [1] */
+//   min-height: 100vh;                              /* [1, 2] */
+//   flex-direction: column;                         /* [1] */
+
+//   // content
+//   &__content {
+//     display: flex;                                  /* [3] */
+//     flex-direction: column;                         /* [3] */
+//     flex: 1 0 auto;                                 /* [1] */
+
+//     &.padded {
+//       padding-bottom: rem-calc(space(double));
+//     }
+//   }
+// }
+
+
+/**
+ * center and contorl width
+ */
+$debug : true !default;
+
+.page-wrapper {
+
+  width: 100%;
+
+  @include breakpoint(large) {
+    width: rem-calc(960);
+    margin: 0 auto;
+  }
+
+  @include breakpoint(larger) {
+    width: rem-calc(1280);
+    margin: 0 auto;
+  }
+
+  @if($debug) {
+    outline: 1px solid red;
+  }
+
+}

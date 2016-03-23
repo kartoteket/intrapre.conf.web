@@ -1,0 +1,115 @@
+/*------------------------------------*\
+    # Alert messages
+\*------------------------------------*/
+
+/*------------------------------------*\
+<div class="alert media alert--warning">
+    <div class="alert__figure">
+        ...
+    </div>
+    <div class="alert__body">
+        ...
+    </div>
+</div>
+\*------------------------------------*/
+
+.alert {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: rem-calc(space(base));
+  padding: rem-calc(space(half));
+  align-items: center;
+  transition: opacity 200ms, -webkit-transform 300ms cubic-bezier(.165, .840, .440, 1);
+  border-radius: 3px;
+  color: color(secondary-text);
+  box-shadow: 0 0 2px rgba(0, 0, 0, .12), 0 2px 4px rgba(0, 0, 0, .24); /* stolen from googles inbox / material design */
+
+
+  &__figure {
+    margin: rem-calc(0 0 space(half) 0);
+  }
+
+  &__body {
+    flex: 1;
+  }
+
+  @include breakpoint(small) {
+    flex-direction: row;
+
+    &__figure {
+      margin: rem-calc(0 space(half) 0 0);
+    }
+  }
+
+  .icon {
+    @include font-size(24);
+    color: color(secondary-text);
+    vertical-align: middle;
+  }
+}
+
+/**
+ * flash extends usually alerts and make them
+ * pop up in a cornor and then typicaly disapears
+ * 1. position in a screen corner.
+ * 2. no need for margins
+ * 3. fatten up a bit to show
+ * 4. make sure it comes out on top. Big number to safeguard agiainst leflet maps 400
+ */
+
+.flash {
+  position: fixed;              /* [1] */
+  margin-bottom: 0;             /* [2] */
+  padding: rem-calc(space(base));    /* [3] */
+  z-index: 500;                 /* [4]*/
+
+  &--tl {
+    top: rem-calc(space(base));
+    left: rem-calc(space(base));
+  }
+
+  &--tr {
+    top: rem-calc(space(base));
+    right: rem-calc(space(base));
+  }
+
+  &--br {
+    right: rem-calc(space(base));      /* [1] */
+    bottom: rem-calc(space(base));     /* [1] */
+  }
+
+  &--bl {
+    bottom: rem-calc(space(base));     /* [1] */
+    left: rem-calc(space(base));       /* [1] */
+  }
+}
+
+/**
+ * spinner extends usually alerts and make them
+ * appear midscreen as a modal
+ * 1. Wrapper goes full screen
+ * 2. no need for margins
+ * 3. fatten up a bit to show
+ * 4. make sure it comes out on top. Big number to safeguard agiainst leflet maps 400
+ * 5. center using flexbox
+ */
+
+.spinner {
+  max-width: 50%;
+  margin-bottom: 0;             /* [2] */
+  padding: rem-calc(space(base));    /* [3] */
+
+  &__wrap {
+    display: flex;              /* [5] */
+    align-items: center;        /* [5] */
+    justify-content: center;    /* [5] */
+
+    position: fixed;            /* [1] */
+    top: 0;                     /* [1] */
+    right: 0;                   /* [1] */
+    bottom: 0;                  /* [1] */
+    left: 0;                    /* [1] */
+    background-color: rgba(10, 10, 10, .33);
+    z-index: 500;               /* [4] */
+  }
+}

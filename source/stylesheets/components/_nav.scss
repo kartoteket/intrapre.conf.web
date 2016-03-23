@@ -1,0 +1,140 @@
+/*------------------------------------*\
+  # Generic nav object
+\*------------------------------------*/
+
+%nav,
+.nav {
+
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  /* Modifiers
+  /* ------------------------------------ */
+
+  // Populate from the right side of the parent container
+  &--rtl {
+    flex-direction: row-reverse;
+  }
+
+
+  /* Elements
+  /* ------------------------------------ */
+
+  // nav item.
+  &__item {
+
+    > span,  // the span is used for dropdowns...
+    > a {
+      @include fade(all, .2s);
+
+      display: block;
+      height: inherit;
+      padding: rem-calc(space(quarter) space(half));
+      color: inherit;
+      line-height: inherit;
+
+      // this is too specific it, we specify it at each instance
+      // the generic class just keeps it plain
+      &:hover {
+        color: inherit;
+      }
+
+      &.btn {
+        padding: rem-calc((space(quarter) - 1) space(quarter));     // Not sure if this is solid enough, but because btns have borders, we need to subtract 1px top and bottom to preserve the baseline
+      }
+    }
+
+    // a nav item that expands a dropdown on click. Extends split-btn.
+    &--dropdown {
+      z-index: 500;  // must float untop of many unknowns
+
+      // override some stiles
+      > .split-btn {
+
+        &:hover {
+          background: none;
+        }
+
+        > .split-btn__default {
+          padding: 0;
+        }
+
+        .split-btn__drop {
+          border: 1px solid color(divider);
+          background-color: #fff;
+        }
+      }
+    }
+  }
+
+  // spacer item in nav lists to justify groups of nav items
+  &__spacer {
+    flex: 1 0 auto;
+    min-width: rem-calc(space(half));
+  }
+
+  // divider
+  &__divider {
+
+    position: relative;
+    margin-left: 1px;
+
+    &:before {
+      position: absolute;
+      top: 25%;
+      left: -1px;
+      width: 1px;
+      height: 50%;
+      background-color: color(background);
+      content: "";
+    }
+
+    &--after {
+      margin-right: 1px;
+      margin-left: 0;
+
+      &:before {
+        right: -1px;
+        left: auto;
+      }
+    }
+  }
+}
+
+%nav--vertical,
+.nav--vertical {
+  flex-direction: column;
+  text-align: left;
+
+  .nav__item {
+    i {
+      padding: 0 rem-calc(space(quarter));
+    }
+  }
+
+  // divider
+  .nav__divider {
+
+    position: relative;
+    margin-top: -1px;
+
+    &:before {
+      top: 0;
+      left: 5%;
+      width: 90%;
+      height: 1px;
+    }
+
+    &--after {
+      margin-top: 0;
+      margin-bottom: 1px;
+
+      &:before {
+        top: auto;
+        bottom: -1px;
+      }
+    }
+  }
+}

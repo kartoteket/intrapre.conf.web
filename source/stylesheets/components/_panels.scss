@@ -1,0 +1,138 @@
+/*
+
+  Zurb foundations: http://foundation.zurb.com/apps/docs/#!/panel
+  PANEL
+  -----
+
+  The friendly panel is an all-purpose container for hiding content off-screen.
+
+  Features:
+   - Position at top, right, bottom, or left
+   - Anchor to grid block or window
+   - Define max width or height
+   - Transform into grid block depending on screen size
+*/
+
+/// @Foundation.settings
+
+// Panel
+$panel-size-horizontal  : 450px !default;
+$panel-size-vertical    : 350px !default;
+$panel-size-horizontal-closed    :  0 !default;
+$panel-size-vertical-closed      :  30px !default;
+
+$panel-padding          : 0     !default;
+$panel-background       : #fff  !default;
+$panel-animation-speed  : .5s  !default;
+
+$panel-shadow           : false;
+$panel-shadow-distance  : 12px;
+$panel-shadow-size      : 6px;
+$panel-shadow-color     : rgba(#000, .25);
+
+$panel-debug            : false;
+
+
+/**
+ * Layout and position for the different panels
+ * @param  {[type]} $position: left          left, rigth, bottom . NB top not used
+ * @param  {[type]} $debug:    false         print debug info
+ * 1 - let it grow and shrink
+ * 2 - same-height columns  (TODO: might not be the optial solution)
+ * 3 - width/height when collapsed
+ * 4 - width/height when open
+ * 5 - left panel before main content
+ */
+@mixin _panel-layout($position: left, $debug: $panel-debug) {
+
+  /* left & right */
+  @if $position == right or $position == left {
+    flex: 1 auto;                                  /* [1] */
+    display: flex;                                 /* [2] */
+    max-width: rem-calc($panel-size-horizontal-closed);       /* [3] */
+
+    &.panel--open {
+      max-width: rem-calc($panel-size-horizontal); /* [4] */
+    }
+
+  /* bottom */
+  } @else if $position == bottom {
+      flex: 1 auto;                               /* [1] */
+      width: 100%;
+      min-height: rem-calc($panel-size-vertical-closed);   /* [2] */
+      max-height: rem-calc($panel-size-vertical-closed);   /* [2] */
+
+      &.panel--open {
+        min-height: $panel-size-vertical;                        /* [4] */
+        max-height: $panel-size-vertical;                        /* [4] */
+      }
+  }
+
+  /* Order panels */
+  @if $position == left          { order: 1; }    /* [5] */
+  @else if $position == right    { order: 3; }
+
+  /* Shadows */
+  @if($panel-shadow) {
+    &.panel--open {
+      @if $position == left        { box-shadow: $panel-shadow-distance 0 $panel-shadow-size (-$panel-shadow-size/1.5) $panel-shadow-color; }
+      @else if $position == right  { box-shadow: (-$panel-shadow-distance) 0 $panel-shadow-size (-$panel-shadow-size/1.5) $panel-shadow-color; }
+      @else if $position == bottom { box-shadow: 2px (-$panel-shadow-distance) $panel-shadow-size (-$panel-shadow-size/1.5) $panel-shadow-color; }
+    }
+  }
+
+  /* Debug */
+  @if($debug) {
+    @if $position == left        { background-color: color(orange); }
+    @else if $position == right  { background-color: color(brown); }
+    @else if $position == bottom { background-color: color(turquoise); }
+  }
+
+}
+
+/* Outer panels wrapper - vertical */
+.panels-outer {
+  display: flex;                    // all good things are flex!
+  flex-flow: column;                // (top and) bottom panel below
+  flex: 1 auto;                     // full height
+  justify-content: space-between;   // push bottom panel to the, well..., bottom
+}
+
+/* Inner panels wrapper - horizontal */
+.panels-inner {
+  display: flex;
+  flex-direction: row nowrap;       // left and right panels on a row
+  flex: 1 auto;                    // full height
+}
+
+/* the main content */
+.panels-content {
+  order: 2;
+  flex: 4 1 0%;
+  overflow: hidden;
+}
+
+/* generig panel features */
+.panel {
+  transition: all $panel-animation-speed ease-in-out;
+  // outline: 1px solid color(divider);
+  overflow: hidden;
+  z-index: 401;                 // position on top of leaflet
+}
+
+.panel--right  { @include _panel-layout(right); }
+.panel--bottom { @include _panel-layout(bottom); }
+.panel--left   { @include _panel-layout(left); }
+
+
+@if($panel-debug){
+  .panels-outer {
+    max-width: 800px;                     // tmp for testing / SG
+    height: 500px;                        // tmp for testing / SG
+    outline: 1px solid color(pistasje);   // tmp for testing / SG
+  }
+
+  .panels-content {
+    background-color: color(blue);
+  }
+}

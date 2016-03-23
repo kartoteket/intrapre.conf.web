@@ -1,0 +1,101 @@
+/*------------------------------------*\
+    # Legends
+\*------------------------------------*/
+
+
+$legend-circle-size : 7;
+
+
+%legend,
+.legend {
+  list-style-type: none;
+  max-height: rem-calc(44);
+  overflow: hidden;
+  transition: .25s;
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  &--btmright {
+    top: auto;
+    bottom: 0;
+    right: 0;
+  }
+
+  &--expanded {
+    max-height: rem-calc(400);
+
+    .legend__head {
+      border-bottom: 1px solid color(divider);
+    }
+  }
+
+  &__head {
+    display: flex;
+    justify-content: space-between;
+
+    .icon {
+      font-size: 1.5em;
+    }
+
+    h4 {
+      border-bottom: 0;
+    }
+
+  }
+
+
+
+  &__item {
+    margin-top: rem-calc(space(half));
+    @include font-size(14, 1);
+    color: color(secondary-text);
+  }
+
+  .legend-circle {
+
+    margin-top: 0;
+    padding-left: rem-calc($legend-circle-size * 2);
+
+    &:before {
+      display: block;
+      position: relative;
+      top: rem-calc($legend-circle-size * 2);
+      left: rem-calc($legend-circle-size * -2.5);
+      width: rem-calc($legend-circle-size);
+      height: rem-calc($legend-circle-size);
+      border-width: rem-calc($legend-circle-size);
+      border-style: solid;
+      border-radius: 50%;
+      border-color: inherit;
+      content: '';
+    }
+  }
+
+  .legend-square {
+
+    margin-top: 0;
+    padding-left: rem-calc($legend-circle-size * 2);
+
+    &:before {
+      display: block;
+      position: relative;
+      top: rem-calc($legend-circle-size * 2);
+      left: rem-calc($legend-circle-size * -2.5);
+      width: rem-calc($legend-circle-size);
+      height: rem-calc($legend-circle-size);
+      border-width: rem-calc($legend-circle-size);
+      border-style: solid;
+      border-color: inherit;
+      content: '';
+    }
+
+    &.line--hidden:before {
+      border-style: double;
+      opacity: .66;
+    }
+
+  }
+
+
+}

@@ -1,0 +1,55 @@
+/*------------------------------------*\
+    # Tabels
+\*------------------------------------*/
+// scss-lint:disable SelectorDepth
+
+$table-border-color : color(dividers);
+$table-head-bg-color:    color(primary, light);
+$table-hover-color:    color(accent, lighter);
+
+.table {
+
+    @include font-size(13);
+
+    width: 100%;
+    font-family: $mono-font;
+    table-layout: fixed; /* ??!?!? */
+
+    border-top: 1px solid $table-border-color;
+    border-right: 1px solid $table-border-color;
+
+    /* Basic Table cell styles */
+    %tablecell,
+    td,
+    th {
+        padding: rem-calc(space(half));
+        border-bottom: 1px solid $table-border-color;
+        border-left: 1px solid $table-border-color;
+        text-align: left;
+        white-space: nowrap;
+        overflow: hidden;
+        vertical-align: top;
+    }
+
+    // table head
+    &__head {
+        th {
+            border-bottom: 1px solid $table-border-color;
+            border-left: 1px solid $table-border-color;
+            background-color: $table-head-bg-color;
+            color: color(primary-text);
+            text-align: left;
+            text-transform: capitalize;
+        }
+    }
+
+    // table body
+    &__body {
+        tr {
+            @include fade(background-color);
+            &:hover {
+                background-color: $table-hover-color;
+            }
+        }
+    }
+}

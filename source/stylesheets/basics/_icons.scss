@@ -1,0 +1,73 @@
+/*------------------------------------*\
+    # Icons
+\*------------------------------------*/
+
+/**
+ * Base svg icon class
+ * [1] Flow with text content
+ * [2] Inherit the parent text color
+ * [3] Use the parent font-size for width and height
+ * [4] Vertically align icon with adjacent text
+ * [5] Align more nicely with capital letters
+ */
+
+.icon {
+  display: inline-block;    /* [1] */
+  position: relative;       /* [5] */
+  top: -.0625em;           /* [5] */
+  width: 1em;               /* [3] */
+  height: 1em;              /* [3] */
+  vertical-align: middle;   /* [4] */
+  fill: currentColor;       /* [2] */
+
+  &--large {
+    width: 1.5em;
+    height: 1.5em;
+  }
+
+  &--larger {
+    width: 2em;
+    height: 2em;
+  }
+
+  &--rotate {
+    animation: spin .75s linear infinite;
+  }
+}
+
+// echo color modfier classes
+@each $name, $value in $colors {
+  .icon--#{"" + $name} {
+    color: color($name);
+  }
+}
+
+// animation (todo: move ?)
+@keyframes spin {
+  100% {transform: rotate(360deg);}
+}
+
+
+
+
+/* =======================================================================================
+Example showing how to change the color/size of the icons:
+.icon-name {
+    font-size: 32px; // works because "width" & "height" were set using em units
+    color: red; // works for single-colored icons, because "fill" was set to "currentColor"
+}
+======================================================================================== */
+
+/*
+.icon-search {
+  @include font-size(20);
+  width: .9287109375em;
+  color: #fff;
+}
+
+.icon-facebook-square {
+  @include font-size(33);
+  width: .8571428571428572em;
+  color: #fff;
+}
+*/

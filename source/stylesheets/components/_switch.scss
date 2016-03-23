@@ -1,0 +1,94 @@
+/*------------------------------------*\
+    # Toggle switch
+\*------------------------------------*/
+
+
+@mixin build-switch ($height:32, $stroke:2, $transition:.4s) {
+  $width     : $height * 2;
+  $radius    : $height - ($stroke * 4);
+
+  &__checkbox {
+    position: absolute;
+    margin-left: -9999px;
+    visibility: hidden;
+
+    &:checked + label {
+      background-color: color(primary);
+    }
+
+    &:checked + label:after {
+      margin-left: rem-calc($height);
+      background-color: color(primary);
+    }
+  }
+
+  &__toggle {
+    display: block;
+    position: relative;
+    width: rem-calc($width);
+    height: rem-calc($height);
+    padding: value-as-px($stroke);
+    transition: background $transition;
+    border-radius: rem-calc($height / 2);
+    outline: none;
+    background-color: color(divider);
+    cursor: pointer;
+    user-select: none;
+
+    &:before,
+    &:after {
+      display: block;
+      position: absolute;
+      content: "";
+    }
+
+    &:before {
+      top: value-as-px($stroke);
+      right: value-as-px($stroke);
+      bottom: value-as-px($stroke);
+      left: value-as-px($stroke);
+      transition: background $transition;
+      border-radius: rem-calc($height);
+      background-color: #fff;
+    }
+
+    &:after {
+      top: $stroke * 2px;
+      bottom: $stroke * 2px;
+      left: $stroke * 2px;
+      width: rem-calc($radius);
+      transition: margin $transition, background $transition;
+      border-radius: rem-calc($radius);
+      background-color: color(divider);
+    }
+  }
+}
+
+.switch {
+  @include build-switch(32);
+}
+
+.switch--small {
+  @include build-switch(24);
+}
+
+/****************************************/
+// TODO: Move this to headings
+/****************************************/
+
+.heading-with-btn,
+.heading-with-switch {
+  display: flex;
+  align-items: center;
+
+  .heading__button,
+  .field-wrapper {
+    width: auto;
+    margin-bottom: 2px;
+    margin-left: auto;
+
+    .form__label {
+      margin-bottom: 0;
+    }
+  }
+}

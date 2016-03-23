@@ -1,0 +1,90 @@
+/*------------------------------------*\
+    # Grid
+\*------------------------------------*/
+
+/**
+ * Ref: http://ux.mailchimp.com/patterns/slats
+ */
+
+.slats {
+
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: rem-calc(space(base));
+  padding: rem-calc(0 0 space(half) 0);
+  border-bottom: 1px solid color(divider);
+
+  &__item {
+    flex: 1 auto;
+    padding: 0 rem-calc(space(base));
+
+    &:first-child {         // title -> 4 times as wide
+      flex: 4 0 auto;
+      padding-left: 0;
+    }
+
+    &:last-child {          // button -> float right;
+      flex: 1 1 auto;
+      margin-left: auto;
+      padding-right: 0;
+      text-align: right;
+    }
+
+    &--vcenter {
+      align-self: center;
+    }
+
+  }
+
+  &__spacer {
+    flex: 1 1 auto;
+    min-width: rem-calc(space(base));
+  }
+
+  &__label {
+    overflow: hidden;
+  }
+}
+
+/**
+ * header row for slats-list
+ * 1. Hide sort-icon by default
+ * 2. Animate rotation
+ * 3. Show sort-icon when sorted by
+ * 4. Hint to sort icon on hover on another column
+ * 5. Rotate 180% when sorted ascending (small->bigger)
+ */
+
+.slats--header {
+  padding-bottom: 0;
+  border-width: 0;
+
+  > .slats__item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    // 
+    > .icon {
+      display: none;                      /* [1] */
+      margin-left: auto;
+      transition: all .25s ease-in-out;  /* [2] */
+      color: color(primary);
+    }
+
+
+    &.sorted > .icon {
+      display: inline-block;              /* [3] */
+    }
+
+    &:not(.sorted):hover > .icon {        /* [4] */
+      display: inline-block;
+      color: color(hints-text);
+    }
+
+    &.sorted--asc .icon {
+      transform: rotate(180deg);          /* [5] */
+    }
+  }
+}
+

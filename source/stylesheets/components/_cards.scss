@@ -1,0 +1,30 @@
+/*------------------------------------*\
+    # Card
+\*------------------------------------*/
+
+.card {
+  width: 100%;                        /* follow parent width*/
+  padding: rem-calc(space(half));
+  border: 1px solid color(divider);
+
+  &__figure {
+    color: color(primary);
+    font-size: rem-calc(48);
+  }
+
+  &__title {
+    @extend %gamma;
+  }
+
+  &__desc {
+    color: color(primary-text);
+  }
+
+  // a card can be a link
+  &:hover {
+    .icon,
+    .card__title {
+      color: color(accent);
+    }
+  }
+}

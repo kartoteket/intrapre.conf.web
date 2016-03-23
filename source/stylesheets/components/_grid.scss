@@ -1,0 +1,123 @@
+/*------------------------------------*\
+    # Grid
+\*------------------------------------*/
+
+$grid-columns       : 12 !default;
+$grid-gutter        : space(base) !default;
+$grid-gutter-small  : round(space(half)) !default;
+
+.grid,
+%grid {
+  display: flex;
+  flex-flow: row wrap;
+
+  margin: rem-calc(-$grid-gutter-small 0 $grid-gutter-small (-$grid-gutter-small));
+
+  @include breakpoint(medium) {
+    margin: rem-calc(-$grid-gutter 0 $grid-gutter (-$grid-gutter));
+  }
+
+  /** alignments  */
+  &--valign-middel {                     /* align center on cross axis */
+    align-items: center;
+  }
+
+  &--justified {
+    justify-content: space-between;
+  }
+
+  &--right {
+    justify-content: flex-end;
+  }
+
+  /* directions  */
+  &--vertical {
+    flex-direction: column;
+  }
+
+  &--small--vertical {
+    @include breakpoint(max small) {
+      flex-direction: column;
+    }
+  }
+
+  &--medium--vertical {
+    @include breakpoint(max medium) {
+      flex-direction: column;
+    }
+  }
+
+  &--medium-horizontal {
+    @include breakpoint(medium) {
+      flex-direction: row;
+    }
+  }
+
+  &--large-horizontal {
+    @include breakpoint(large) {
+      flex-direction: row;
+    }
+  }
+
+  // equal height
+  &--equalheight > .grid__item {                 /* might not be the best way, but force grow of content by making each cell a flex-container */
+    display: flex;
+  }
+
+}
+
+
+.grid__item,
+%grid__item {
+  flex: 1;
+
+  padding: rem-calc($grid-gutter-small 0 0 $grid-gutter-small);
+
+  @include breakpoint(medium) {
+    padding: rem-calc($grid-gutter 0 0 $grid-gutter);
+  }
+
+  &--right {
+    margin-left: auto;
+    align-self: flex-end;
+  }
+
+
+  &--grow {
+    flex: 1 0 auto !important;
+  }
+
+  &--large-grow {
+    @include breakpoint(large) {
+      flex: 1 0 auto !important;
+    }
+  }
+
+  &--shrink {
+    flex: 0 1 auto !important;
+  }
+
+  &--large-shrink {
+    @include breakpoint(large) {
+      flex: 0 1 auto !important;
+    }
+  }
+
+  // ad hoc shit -> stretches the main column to full height and adds bg-color.
+  // only for medium and up (horisontal layout)
+  &--stretch {
+    @include breakpoint(medium) {
+      align-self: stretch;
+      margin: rem-calc($grid-gutter 0 0 $grid-gutter);
+      background-color: #fff;
+    }
+  }
+}
+
+
+//$debug-grid : true;
+@if ($debug-grid == true) {
+    .grid__item {
+        outline: 1px solid #f00;
+    }
+}

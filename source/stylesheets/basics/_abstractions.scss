@@ -1,0 +1,90 @@
+/*------------------------------------*\
+    # Abstractions
+\*------------------------------------*/
+
+/**
+ * Stubornellas media object with Flexbox
+ * https://philipwalton.github.io/solved-by-flexbox/demos/media-object/
+ * https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/components/media.css
+ *
+ * <div class="media">
+ *   <img class="media__figure" src="" alt="">
+ *   <p class="media__body">…</p>
+ * </div>
+ *
+ * [1] top aligned
+ * [2] mobile first
+*/
+.media {
+    display: flex;
+    align-items: flex-start;                /* [1] */
+    flex-direction: column;                 /* [2] */
+
+    &__figure {
+        margin: rem-calc(0 0 space(base) 0);     /* [2] */
+
+    }
+
+    &__body {
+        flex: 1;
+    }
+
+    @include breakpoint(medium) {            /* [2] */
+        flex-direction: row;
+
+        &__figure {
+            margin: rem-calc(0 space(base) 0 0);
+        }
+    }
+}
+
+
+/**
+ * Harry Roberts block object with Flexbox
+ * https://github.com/inuitcss/objects.block/blob/master/_objects.block.scss
+ *
+ * <div class="block">
+ *   <img class="block__figure" src="" alt="">
+ *   <p class="block__body">…</p>
+ * </div>
+ *
+ * [1] stop block__figure growing if text in block__body is uneven
+ * [2] padding is really not very abstract...
+
+ */
+
+.block {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    &__figure,
+    &__figure img {
+        flex: 0 1;                /* [1] */
+        vertical-align: middle;
+    }
+
+    &__body {
+        flex: 1;
+        padding: rem-calc(space(half));  /* [2] */
+    }
+
+}
+
+/**
+ * dymo
+ * inline block element, with inverted colors
+ */
+.dymo {
+    display: inline-block;
+    padding: rem-calc(space(quarter));
+    background-color: color(primary-text);
+    color: color(background);
+
+    // with links
+    &.active,
+    &:hover {
+        background-color: color(accent);
+        color: color(background);
+    }
+}

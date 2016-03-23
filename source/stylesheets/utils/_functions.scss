@@ -1,0 +1,196 @@
+/*------------------------------------*\
+    # Utilty Functions
+\*------------------------------------*/
+
+
+/**
+ * Strips unit from value
+ * @param  {int} $num value with unit (px, em)
+ * @return {int} value without unit
+ */
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+
+/**
+ * Converts px value to rem
+ * @param  {int} $value                         px value to convert (with our witout unit)
+ * @param  {int} $base-value: $base-font-size   base font-size to describe the rem/px ration
+ * @return {int}                                rm-value
+ */
+@function convert-to-rem($value, $base-value: $base-font-size) {
+  $value: strip-unit($value) / strip-unit($base-value) * 1rem;
+  @if ($value == 0rem) { $value: 0; } // Turn 0 rem into 0
+  @return $value;
+}
+
+
+/**
+ * Converts value to px
+ * @param  {int} $value       any plain value
+ * @return {int} $value       value as px
+ */
+@function value-as-px($value) {
+  $value: strip-unit($value) * 1px;
+  @return $value;
+}
+
+
+/**
+ * Calcualtes rem-value on font-size as base-line
+ * @param  {int} $values      int or space seperated list of ints
+ * @param  {int} $base-value: $rem-base
+ * @return {int}              returns single or multiple rem-value(s)
+ */
+@function rem-calc($values, $base-value: $base-font-size) {
+  $max: length($values);
+  @if $max == 1 {
+    @return convert-to-rem(nth($values, 1), $base-value);
+  }
+  $rem-values: ();
+  @for $i from 1 through $max {
+    $rem-values: append($rem-values, convert-to-rem(nth($values, $i), $base-value));
+  }
+
+  // @debug $max $values $rem-values;
+  @return $rem-values;
+}
+
+
+/**
+ * Get space from map
+ * @param  {[type]} $key  name of space to get
+ * @return {int}          a space value as plane int
+ */
+@function space ($key, $negative: false) {
+
+  $space: $base-line-height;
+
+  @if map-has-key($spacings, $key) {
+      $space : map-get($spacings, $key);
+  } @else {
+    @warn "Unknown `#{$key}` in $spacings. Using defaut space!";
+  }
+
+  @if($negative) {
+    $space: $space * -1;
+  }
+
+  @return $space;
+}
+
+
+/**
+ * Get color from map
+ * Refs:
+ * http://www.sitepoint.com/using-sass-maps/
+ * http://erskinedesign.com/blog/friendlier-colour-names-sass-maps/
+ *
+ * @param  {string} $key      name of color to get
+ * @param  {string} $tone:    lighten(30%), light(15%), dark(15%) or darker(30%)
+ * @return {mixed}            color value (hex, rgba...)
+ */
+@function color($key, $tone: false) {
+
+    @if map-has-key($colors, $key) {
+        $color : map-get($colors, $key);
+
+      @if($tone == 'lighter') {
+        $color : lighten($color, 30%);
+      }
+
+      @if($tone == 'light') {
+        $color : lighten($color, 15%);
+      }
+
+      @if($tone == 'dark') {
+        $color : darken($color, 15%);
+      }
+
+      @if($tone == 'darker') {
+        $color : darken($color, 30%);
+      }
+
+
+      @return $color;
+
+    }
+
+    @warn "Unknown `#{$key}` in $colors.";
+    @return null;
+}
+
+
+/// Is It Light?
+/// By Zurb Foundation
+/// https://github.com/zurb/foundation-apps/blob/0c6badb3c58b06a288d9a2b2638f7a6efd9803b7/scss/helpers/_functions.scss
+/// Checks the lightness of $color, and if it passes the $threshold of lightness, it returns the `$yes` color. Otherwise, it returns the `$no` color. Use this function to dynamically output a foreground color based on a given background color.
+///
+/// @param {color} $color - Color to check the lightness of.
+/// @param {color} $yes - Color to return if $color is light.
+/// @param {color} $no - Color to return if $color is dark.
+/// @param {percentage} $threshold - Threshold of lightness to check against.
+///
+/// @return The $yes color or $no color.
+@function isitlight($color, $yes: #000, $no: #fff, $threshold: 60%) {
+    @if (lightness($color) > $threshold) {
+        @return $yes;
+    } @else {
+        @return $no;
+    }
+}
+
+
+/// Smart Scale
+/// By Zurb Foundation
+/// https://github.com/zurb/foundation-apps/blob/0c6badb3c58b06a288d9a2b2638f7a6efd9803b7/scss/helpers/_functions.scss
+/// Scales a color to be lighter if it's light, or darker if it's dark. Use this function to "fade" a color appropriate to its lightness.
+///
+/// @param {color} $color - Color to scale.
+/// @param {percentage} $scale - Amount to scale up or down.
+/// @param {percentage} $threshold - Threshold of lightness to check against.
+///
+/// @return A scaled color.
+@function smartscale($color, $scale: 5%, $threshold: 60%) {
+  @if lightness($color) > $threshold {
+    $scale: -$scale;
+  }
+  @return scale-color($color, $lightness: $scale);
+}
+
+
+/// Map Next
+///  By Zurb Foundation
+///  https://github.com/zurb/foundation-apps
+/// Find the next key in a map.
+///
+/// @param {map} $map - Map to traverse.
+/// @param {mixed} $key - Key to use as a starting point.
+///
+/// @return The value for the key after `$key` if `$key` was found. If `$key` was not found, or `$key` was the last value in the map, returns null.
+@function map-next($map, $key) {
+  // Store the values of the map as a list, so we can access them with nth
+  $values: map-values($map);
+
+  // Ghetto for loop
+  $i: 1;
+  $found: false;
+  @each $val in map-keys($map) {
+    @if $found == false {
+      @if ($key == $val) {
+        $found: true;
+      }
+      $i: $i + 1;
+    }
+  }
+
+  // If the key doesn't exist, or it's the last key in the map, return null
+  @if $i > length($map) {
+    @return null;
+  }
+  // Otherwise return the value
+  @else {
+    @return nth($values, $i);
+  }
+}

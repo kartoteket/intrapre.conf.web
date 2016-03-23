@@ -1,0 +1,70 @@
+/* ------------------ */
+/* Settings           */
+/* ------------------ */
+@import "settings";
+$debug-grid: false;
+
+
+/* ------------------ */
+/* Vendors            */
+/* ------------------ */
+
+
+/* ------------------ */
+/* Utils              */
+/* ------------------ */
+@import "utils/normalize";
+@import "utils/functions";
+@import "utils/mixins";
+@import "utils/breakpoints";
+@import "utils/widths";
+
+
+/* ------------------ */
+/* Page             */
+/* ------------------ */
+@import "page/page";                /* masse gammel som er kopiert inn her. rydd ved anledning */
+@import "page/header";              /* masse gammel som er kopiert inn her. rydd ved anledning */
+@import "page/footer";              /* masse gammel som er kopiert inn her. rydd ved anledning */
+
+
+/* ------------------ */
+/* Basics             */
+/* ------------------ */
+@import "basics/typography";
+@import "basics/icons";
+@import "basics/abstractions";          /* E.g. the media object */
+
+
+/* ------------------ */
+/* Components         */
+/* ------------------ */
+@import "components/grid";
+@import "components/alerts";
+@import "components/buttons";
+@import "components/buttons-group";
+// @import "components/switch";
+@import "components/lists";
+@import "components/forms";
+// @import "components/inline-edit";
+@import "components/nav";
+// @import "components/tables";
+// @import "components/cards";
+// @import "components/slats";
+// @import "components/panels";
+// @import "components/legend";            /* hvor skal jeg legge den tro ??!? */
+
+
+/* ------------------ */
+/* Elements           */                /* Very design/brand specific stuff. Nothing thats really generic */
+/* ------------------ */
+
+
+/* ------------------ */
+/* Helpers and Trumps and Shame */
+/* ------------------ */
+@import "utils/helpers";
+@import "utils/shame";
+
+
+

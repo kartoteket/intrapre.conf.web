@@ -35,8 +35,6 @@
       color: inherit;
       line-height: inherit;
 
-      // this is too specific it, we specify it at each instance
-      // the generic class just keeps it plain
       &:hover {
         color: inherit;
       }
@@ -45,6 +43,7 @@
         padding: rem-calc((space(quarter) - 1) space(quarter));     // Not sure if this is solid enough, but because btns have borders, we need to subtract 1px top and bottom to preserve the baseline
       }
     }
+
 
     // a nav item that expands a dropdown on click. Extends split-btn.
     &--dropdown {

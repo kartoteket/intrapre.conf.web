@@ -1,0 +1,70 @@
+
+.hero {
+  padding-top: 7%;
+  padding-bottom: 7%;
+  @include  breakpoint(medium) {
+    padding-top: 15%;
+  }
+
+  position: relative;
+  color: #fff;
+
+  .icon {
+    color: color(accent);
+
+    @include  breakpoint(medium) {
+      font-size: 2.5em;
+    }
+  }
+}
+
+.hero__background {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  z-index: -1;
+}
+
+.hero__logo {
+  display: inline-block;
+  position: relative;
+  width: 2em;
+  height: 1em;
+  vertical-align: middle;
+
+  @include  breakpoint(max medium) {
+    margin-bottom: space(double);
+  }
+
+}
+
+.hero__title {
+  @include font-size(hero-title);
+}
+
+.hero__text {
+  @include font-size(hero-text);
+  margin: space(base) 0;
+  color: color(accent);
+}
+
+.hero__details {
+
+  @extend %unstyled-list;
+
+  > li {
+    margin-bottom: space(half);
+
+    @include  breakpoint(medium) {
+      display: inline-block;
+      padding-right: space(half);
+    }
+  }
+
+}
+
+
+.hero__cta {
+  margin: space(base) 0;
+}

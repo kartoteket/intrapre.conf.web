@@ -1,4 +1,6 @@
 ---
 "no":
-  hello: "Heisann"
-  Book your ticket: "Bestill billett i dag"
+  hello: Heisann
+  Book your ticket: Bestill billett i dag
+  intro: Innovasjon - Øker eller reduserer det risiko?
+  book your ticket: Bestill billett i dag

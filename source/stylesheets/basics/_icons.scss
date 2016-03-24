@@ -30,6 +30,16 @@
     height: 2em;
   }
 
+  &--small {
+    width: .75em;
+    height: .75em;
+  }
+
+  &--smaller {
+    width: .5em;
+    height: .5em;
+  }
+
   &--rotate {
     animation: spin .75s linear infinite;
   }
@@ -47,6 +57,23 @@
   100% {transform: rotate(360deg);}
 }
 
+
+.icon-circle {
+  display: inline-block;
+  position: relative;
+  // width: 125%;
+  // height: 125%;
+  padding: .3em;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  background-color: #fff;
+  text-align: center;
+  vertical-align: middle;
+
+  // > .icon {
+  //   top: 15%;
+  // }
+}
 
 
 

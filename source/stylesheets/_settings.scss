@@ -1,7 +1,7 @@
 /*------------------------------------*\
     # Settings
 \*------------------------------------*/
-$debug : true;
+$debug : false;
 
 /**
  * base sizes
@@ -114,6 +114,14 @@ $font-sizes: (
     helper : (
       null  : 12,
       small: 12,
+    ),
+    hero-title : (
+      null: 44,
+      medium: 44,
+    ),
+    hero-text : (
+      null: 24,
+      medium: 26,
     ),
 );
 

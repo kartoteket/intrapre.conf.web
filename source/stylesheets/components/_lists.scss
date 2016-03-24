@@ -16,6 +16,7 @@
 .block-list {
   @extend %unstyled-list;
 
+  > li,
   .list__item {
     display: block;
     // padding: space(quarter) 0);
@@ -33,10 +34,11 @@
 
 }
 
-
+%horisontal-list,
 .horisontal-list {
   @extend %unstyled-list;
 
+  > li,
   .list__item {
     display: inline-block;
   }
@@ -68,7 +70,7 @@
       border-radius: 3px;
 //      font-size: 80%;
       background-color: color(primary);
-      color: white;
+      color: #fff;
       font-weight: 500;
       content: counter(step-counter);
     }

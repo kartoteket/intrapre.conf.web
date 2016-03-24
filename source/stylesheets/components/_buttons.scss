@@ -15,7 +15,7 @@ $btn-color:           color(primary-text) !default;
 $btn-border-width:    1px !default;
 $btn-border-style:    solid !default;
 $btn-border-color:    $btn-background !default;
-$btn-radius:          3px !default;
+$btn-radius:          0 !default;
 
 
 /**
@@ -106,6 +106,31 @@ $btn-radius:          3px !default;
   opacity: .3;
 }
 
+%btn--right,
+.btn--right {
+
+  position: relative;
+
+  &:after {
+    position: absolute;
+    top: 0;
+    right: -1.5rem;
+    width: 0;
+    height: 0;
+    border-top: 1.20em solid transparent;
+    border-bottom: 1.20em solid transparent;
+    border-left: 1.20em solid color(primary);
+    content: '';
+  }
+}
+
+.btn--accent {
+  background-color: color(accent);
+
+  &:after {
+    border-left: 1.5rem solid color(accent);
+  }
+}
 
 /*
 <span class="btn split-btn">

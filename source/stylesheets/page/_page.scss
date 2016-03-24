@@ -74,8 +74,10 @@ $debug : true !default;
 .page-wrapper {
 
   width: 100%;
+  padding: 0 space(base);
 
   @include breakpoint(large) {
+    padding: 0;
     width: rem-calc(960);
     margin: 0 auto;
   }

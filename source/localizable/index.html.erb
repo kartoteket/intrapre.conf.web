@@ -2,6 +2,82 @@
 title: Intraprenørdagene Home
 ---
 
+<!-- Hero -->
+<div class="hero">
+  <%= image_tag "home.png" , { :class => 'hero__background', :alt => 'todo' } %>
+  <div class="page-wrapper">
+
+    <h1 class="hero__title">
+      <span class="hero__logo">
+        <%= image_tag "logo.png" %>
+      </span>
+      Intraprenørdagene 2016
+    </h1>
+
+    <div class="hero__text">
+      <%= t('intro') %>
+    </div>
+
+    <ul class="hero__details">
+      <li>
+        <span class="icon-circle">
+          <svg class="icon icon-location icon--circle-solid"><use xlink:href="#icon-location"></use></svg>
+        </span>
+        Hotell Scandic Fornebu
+      </li>
+      <li>
+        <span class="icon-circle">
+          <svg class="icon icon-calendar"><use xlink:href="#icon-calendar"></use></svg>
+        </span>
+        9. - 10. mai 2016
+      </li>
+    </ul>
+
+    <button class="hero__cta">
+      <%= t('book your ticket')%>
+    </button>
+
+  </div>
+</div>
+
+
+<!-- Blocks -->
+<div class="grid blocks">
+    <div class="grid__item block">
+        <svg class="icon icon-ticket"><use xlink:href="symbol-defs.svg#icon-office"></use></svg>
+        <h2><%= t('venue')%></h2>
+        <div class="muted block__text show-for-medium-up">Cool Place To Hang Out</div>
+        <div class="block__text show-for-medium-up">9th - 10th May 2016</div>
+    </div>
+    <div class="grid__item block">
+        <svg class="icon icon-ticket"><use xlink:href="symbol-defs.svg#icon-ticket"></use></svg>
+        <h2><%= t('tickets')%></h2>
+        <div class="muted block__text show-for-medium-up">&nbsp;</div>
+        <div class="block__text show-for-medium-up">&nbsp;</div>
+    </div>
+    <div class="grid__item block">
+        <svg class="icon icon-podium"><use xlink:href="symbol-defs.svg#icon-podium"></use></svg>
+        <h2><%= t('speakers')%></h2>
+        <div class="muted block__text show-for-medium-up">&nbsp;</div>
+        <div class="block__text show-for-medium-up">&nbsp;</div>
+    </div>
+    <div class="grid__item block">
+        <svg class="icon icon-ticket"><use xlink:href="symbol-defs.svg#icon-calendar"></use></svg>
+        <h2><%= t('program')%></h2>
+        <div class="muted block__text show-for-medium-up">&nbsp;</div>
+        <div class="block__text show-for-medium-up">&nbsp;</div>
+    </div>
+</div>
+
+
+<div class="section-title">
+    <h4>
+        Speakers in Intraprenørdagene
+    </h4>
+    <hr>
+</div>
+
+
 
 <!--
 <div class="welcome">

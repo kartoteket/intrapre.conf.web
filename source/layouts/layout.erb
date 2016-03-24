@@ -47,47 +47,8 @@
       </nav>
     </header>
 
-    <div class="hero">
-      <%= image_tag "home.png" , { :class => 'hero__background', :alt => 'todo' } %>
-      <div class="page-wrapper">
+    <%= yield %>
 
-        <h1 class="hero__title">
-          <span class="hero__logo">
-            <%= image_tag "logo.png" %>
-          </span>
-          Intraprenørdagene 2016
-        </h1>
-
-        <div class="hero__text">
-          <%= t('intro') %>
-        </div>
-
-        <ul class="hero__details">
-          <li>
-            <span class="icon-circle">
-              <svg class="icon icon-location icon--circle-solid"><use xlink:href="#icon-location"></use></svg>
-            </span>
-            Hotell Scandic Fornebu
-          </li>
-          <li>
-            <span class="icon-circle">
-              <svg class="icon icon-calendar"><use xlink:href="#icon-calendar"></use></svg>
-            </span>
-            9. - 10. mai 2016
-          </li>
-        </ul>
-
-        <button class="hero__cta">
-          <%= t('book your ticket')%>
-        </button>
-
-
-      </div>
-    </div>
-
-    <div class="page-wrapper">
-      <%= yield %>
-    </div>
 
     <footer class="site-footer">
       

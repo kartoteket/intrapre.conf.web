@@ -30,6 +30,10 @@
   margin-left: auto;
 }
 
+.muted {
+  opacity: .75;
+}
+
 
 // show/hide for breakpoint
 @each $bp, $width in $breakpoints {

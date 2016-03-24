@@ -53,23 +53,23 @@
 
  */
 
-.block {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+// .block {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: flex-start;
 
-    &__figure,
-    &__figure img {
-        flex: 0 1;                /* [1] */
-        vertical-align: middle;
-    }
+//     &__figure,
+//     &__figure img {
+//         flex: 0 1;                /* [1] */
+//         vertical-align: middle;
+//     }
 
-    &__body {
-        flex: 1;
-        padding: space(half);  /* [2] */
-    }
+//     &__body {
+//         flex: 1;
+//         padding: space(half);  /* [2] */
+//     }
 
-}
+// }
 
 /**
  * dymo

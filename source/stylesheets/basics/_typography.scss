@@ -43,21 +43,20 @@ h4 {
   border-bottom: 1px solid color(divider);
 }
 
-  .delta,
-  %delta {
-    @include font-size(heading-4);
-  }
+.delta,
+%delta {
+  @include font-size(heading-4);
+}
 
 h5 {
     @include font-size(heading-5);
 }
 
 h1, h2, h3, h4, h5 {
-    font-weight: 500;
-    // color: color(header-text);    // softens big and bold type
+  font-weight: 500;
 }
 
-h4,
+
 .uppercase,
 %uppercase {
     text-transform: uppercase;
@@ -65,27 +64,27 @@ h4,
 
 .paragraph,
 %paragraph {
-    font-family: $base-font;
-    @include font-size(paragraph);
-    color: color(primary-text);
+  font-family: $base-font;
+  @include font-size(paragraph);
+  color: color(primary-text);
 }
 
 .helper,
 %helper {
-    @include font-size(12);
-    color: color(secondary-text);
+  @include font-size(12);
+  color: color(secondary-text);
 }
 
 .lead,
 %lead {
 
-    p+p {
-        margin-top: space(base);
-    }
+  p+p {
+    margin-top: space(base);
+  }
 
-    a {
-        color: inherit;
-    }
+  a {
+    color: inherit;
+  }
 }
 
 /* move to helpers ??!? */
@@ -116,9 +115,47 @@ h5 a,
 li a,
 .plainlinks a,
 a.plainlinks {
-    @include plainlinks;
+  @include plainlinks;
 }
 
 p a {
     color: inherit; // TODO: kan sikkert ta denne bort en del andre stedet
+}
+
+
+/**
+ * stuff
+ */
+hr {
+  height: 1px;
+  margin: 0 auto;
+  border: none;
+  background-color: color(header-text);
+  color: color(header-text);
+}
+
+
+/**
+ * specifics
+ */
+
+.section-title {
+
+  padding: space(base) 0;
+  text-align: center;
+
+  h4 {
+    color: color(header-text);
+    @include font-size(21);
+    @include breakpoint(medium) {
+      @include font-size(48);
+    }
+  }
+
+  hr {
+    width: 11%;
+    height: 2px;
+    margin-top: space(half);
+  }
+
 }

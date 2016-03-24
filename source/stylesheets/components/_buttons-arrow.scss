@@ -1,0 +1,39 @@
+/*------------------------------------*\
+    # Buttons
+    Adds a direction arrowtip / triangle to one side of the button
+
+\*------------------------------------*/
+
+
+/**
+ * 1. basic button styles
+ * 2. just so much simpler when heigt is defined
+ */
+
+@mixin arrow-button($direction:right, $height:40, $color:accent) {
+
+  @extend %btn;              /* [1] */
+
+  position: relative;
+  height: rem-calc($height);        /* [2] */
+  background-color: color($color);
+
+  @if($color == accent) {
+    color: #fff;
+  }
+
+  &:after {
+    position: absolute;
+    width: 0;
+    height: 0;
+    content: '';
+
+    @if($direction == right) {
+      top: 0;
+      right: rem-calc($height/2*-1);
+      border-top: rem-calc($height/2) solid transparent;
+      border-bottom: rem-calc($height/2) solid transparent;
+      border-left: rem-calc($height/2) solid color($color);
+    }
+  }
+}

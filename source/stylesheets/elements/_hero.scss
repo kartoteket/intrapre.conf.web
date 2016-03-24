@@ -1,13 +1,13 @@
 
 .hero {
+  position: relative;
   padding-top: 7%;
   padding-bottom: 7%;
+  color: #fff;
+
   @include  breakpoint(medium) {
     padding-top: 15%;
   }
-
-  position: relative;
-  color: #fff;
 
   .icon {
     color: color(accent);
@@ -66,5 +66,6 @@
 
 
 .hero__cta {
+  @include arrow-button(right, 40, accent);
   margin: space(base) 0;
 }

@@ -18,7 +18,7 @@
 
     <header class="site-header">
 
-      <nav role="navigation">
+      <nav role="navigation" class="show-for-medium-up">
         <ul class="nav site-nav">
           <li class="nav__item"><%= link_to 'About', '/about.html' %></li>
           <li class="nav__item"><a href="">Konferansen</a></li>
@@ -26,7 +26,8 @@
         </ul>
       </nav>
 
-      <nav role="navigation">
+
+      <nav role="navigation" class="flex-right">
         <ul class="nav site-nav">
           <li class="nav__item">
             <% if locale.to_s == 'no' %>
@@ -35,7 +36,7 @@
               <%= link_to 'Norsk', '/index.html', { :class => "bg-color-accent" } %>
             <% end %>
           </li>
-          <li class="nav__item"><a class="bg-color-primary" href=""><%= t('Book your ticket')%></a></li>
+          <li class="nav__item show-for-medium-up"><a class="bg-color-primary" href=""><%= t('Book your ticket')%></a></li>
         </ul>
       </nav>
     </header>

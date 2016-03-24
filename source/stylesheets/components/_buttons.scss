@@ -34,7 +34,7 @@ $btn-radius:          3px !default;
   display: inline-block; /* [1] */
   margin: 0; /* [4] */
 //  padding: $btn-padding - $btn-border-width ($btn-padding - $btn-border-width)*2; /* [7] */
-  padding: rem-calc(space(quarter) space(base));
+  padding: space(quarter) space(base);
   background-color: $btn-background;
   font: inherit; /* [3] */
   text-align: center; /* [4] */
@@ -94,8 +94,8 @@ $btn-radius:          3px !default;
   }
 
   &--thin {
-    padding-left:  $btn-padding-thin - $btn-border-width; /* [7] */
-    padding-right:  $btn-padding-thin - $btn-border-width; /* [7] */
+    padding-right: calc($btn-padding-thin - $btn-border-width); /* [7] */
+    padding-left: calc($btn-padding-thin - $btn-border-width); /* [7] */
   }
 
 }
@@ -153,13 +153,13 @@ $btn-radius:          3px !default;
   // the primary button
   &__default {
     display: inline-block;
-    padding: $btn-padding - $btn-border-width ($btn-padding - $btn-border-width)*2; /* [7] */
+    padding: calc($btn-padding - $btn-border-width ($btn-padding - $btn-border-width)*2); /* [7] */
   }
 
   // the dropdown trigger
   &__expand {
     display: inline-block;
-    padding: $btn-padding - $btn-border-width; /* [7] */
+    padding: calc($btn-padding - $btn-border-width); /* [7] */
     border-left: 1px solid #fff;
 
     &:hover,
@@ -192,7 +192,7 @@ $btn-radius:          3px !default;
 
     // temp fix
     .nav__item a {
-      padding: rem-calc(space(half) space(base));
+      padding: space(half) space(base);
 
       &:hover {
         background-color: $btn-background-hover;

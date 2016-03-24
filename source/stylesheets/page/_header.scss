@@ -10,18 +10,26 @@
 .site-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: left;
 
   position: absolute;
   width: 100%;
-  border-bottom: 1px solid rgba(255, 255, 255, .3);
+  @include breakpoint(medium) {
+    border-bottom: 1px solid rgba(255, 255, 255, .3);
+  }
 //  min-height: rem-calc(70);                  /* [1] */
 }
 
 .site-nav {
 
   .nav__item a {
-    padding: rem-calc(space(base));
+
+    padding: space(quarter);
+
+    @include breakpoint(medium) {
+      padding: space(base);
+    }
+
     border-right: 1px solid rgba(255, 255, 255, .3);
     color: #fff;
     text-transform: uppercase;

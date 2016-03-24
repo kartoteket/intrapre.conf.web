@@ -16,8 +16,8 @@
 .alert {
   display: flex;
   flex-direction: column;
-  margin-bottom: rem-calc(space(base));
-  padding: rem-calc(space(half));
+  margin-bottom: space(base);
+  padding: space(half);
   align-items: center;
   transition: opacity 200ms, -webkit-transform 300ms cubic-bezier(.165, .840, .440, 1);
   border-radius: 3px;
@@ -60,27 +60,27 @@
 .flash {
   position: fixed;              /* [1] */
   margin-bottom: 0;             /* [2] */
-  padding: rem-calc(space(base));    /* [3] */
+  padding: space(base);    /* [3] */
   z-index: 500;                 /* [4]*/
 
   &--tl {
-    top: rem-calc(space(base));
-    left: rem-calc(space(base));
+    top: space(base);
+    left: space(base);
   }
 
   &--tr {
-    top: rem-calc(space(base));
-    right: rem-calc(space(base));
+    top: space(base);
+    right: space(base);
   }
 
   &--br {
-    right: rem-calc(space(base));      /* [1] */
-    bottom: rem-calc(space(base));     /* [1] */
+    right: space(base);      /* [1] */
+    bottom: space(base);     /* [1] */
   }
 
   &--bl {
-    bottom: rem-calc(space(base));     /* [1] */
-    left: rem-calc(space(base));       /* [1] */
+    bottom: space(base);     /* [1] */
+    left: space(base);       /* [1] */
   }
 }
 
@@ -97,7 +97,7 @@
 .spinner {
   max-width: 50%;
   margin-bottom: 0;             /* [2] */
-  padding: rem-calc(space(base));    /* [3] */
+  padding: space(base);    /* [3] */
 
   &__wrap {
     display: flex;              /* [5] */

@@ -47,7 +47,7 @@ $legend-circle-size : 7;
 
 
   &__item {
-    margin-top: rem-calc(space(half));
+    margin-top: space(half);
     @include font-size(14, 1);
     color: color(secondary-text);
   }

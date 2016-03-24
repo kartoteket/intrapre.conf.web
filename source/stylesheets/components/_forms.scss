@@ -30,7 +30,7 @@ input[list],
 input[type="file"],
 select,
 textarea {
-  padding: rem-calc(space(quarter));
+  padding: space(quarter);
   border: 1px solid color(primary, light);
   font-family: $base-font;
 
@@ -81,10 +81,10 @@ select::-ms-expand {
 
   &__label {
     display: block;
-    margin-bottom: rem-calc(space(quarter));
+    margin-bottom: space(quarter);
 
     + .form__helptext {
-      margin-top: rem-calc(space(quarter, true));
+      margin-top: space(quarter, true);
     }
 
     &--minor {
@@ -118,7 +118,7 @@ select::-ms-expand {
   }
 
   &__fieldset {
-    padding: rem-calc(space(half));
+    padding: space(half);
     border: 1px solid color(dividers);
 
     &--closed {
@@ -133,7 +133,7 @@ select::-ms-expand {
 
   &__legend {
     color: color(secondary-text);
-    margin-left: rem-calc(space(half, true));
+    margin-left: space(half, true);
     @include font-size(14);
   }
 
@@ -147,11 +147,11 @@ select::-ms-expand {
   &__input-row {
     @extend %unstyled-list;
     display: inline-flex;
-    margin-left: rem-calc(space(quarter, true));
+    margin-left: space(quarter, true);
 
     > li {
       flex: 0 0 auto;
-      padding-left: rem-calc(space(quarter));
+      padding-left: space(quarter);
     }
 
     .form__input {
@@ -167,7 +167,7 @@ select::-ms-expand {
     }
 
     .form__input {
-      padding: rem-calc(space(quarter));
+      padding: space(quarter);
     }
   }
 }
@@ -182,7 +182,7 @@ select::-ms-expand {
   color: color(secondary-text);
 
   .field-wrapper--inline & {
-    margin-top: rem-calc(space(half, true));
+    margin-top: space(half, true);
   }
 }
 .form__input {
@@ -204,7 +204,7 @@ select::-ms-expand {
 .input-prepostfix,
 .form__input {
   + .form__helptext {
-    margin-top: rem-calc(space(quarter));
+    margin-top: space(quarter);
   }
 }
 
@@ -243,10 +243,10 @@ select::-ms-expand {
   flex-direction: column;
   width: 100%;
 //  max-width: rem-calc(600);
-  margin-bottom: rem-calc(space(base));
+  margin-bottom: space(base);
 
   .form--compact & {
-    margin-bottom: rem-calc(space(half));     /* [3] */
+    margin-bottom: space(half);     /* [3] */
   }
 
   .form--inline & {
@@ -286,8 +286,8 @@ select::-ms-expand {
 
   .form__label {
     flex: 0 1 ($inline-label-width * 1%);
-    margin-right: rem-calc(space(quarter));
-    padding-top: rem-calc(space(quarter));      /* [4] */
+    margin-right: space(quarter);
+    padding-top: space(quarter);      /* [4] */
   }
 
   .form__input-wrapper,
@@ -299,7 +299,7 @@ select::-ms-expand {
   }
 
   .form__modifier {
-    padding-left: rem-calc(space(quarter));
+    padding-left: space(quarter);
   }
 
   .form__helptext {
@@ -323,7 +323,7 @@ select::-ms-expand {
     }
 
     .form__modifier {
-      margin: rem-calc(space(half) 0);           /* [3] */
+      margin: space(half) 0;           /* [3] */
     }
   }
 }
@@ -338,7 +338,7 @@ select::-ms-expand {
   justify-content: flex-end;
   width: 100%;
   // max-width: rem-calc(600);
-  margin-bottom: rem-calc(space(base));
+  margin-bottom: space(base);
 
   .btn {
     flex: 0 auto;
@@ -383,8 +383,8 @@ A select dropdown simple style class.
   &__select {
     // width: 100%;
     display: inline-block;
-    margin: rem-calc(0 0 0 space(quarter));
-    padding: rem-calc(0 space(base) 0 0);
+    margin: 0 0 0 space(quarter);
+    padding: 0 space(base) 0 0;
     border-width: 0 0 1px;
     border-radius: 0;
     border-color: color(dividers);

@@ -31,7 +31,7 @@
 
       display: block;
       height: inherit;
-      padding: rem-calc(space(quarter) space(half));
+      padding: space(quarter) space(half);
       color: inherit;
       line-height: inherit;
 
@@ -40,7 +40,7 @@
       }
 
       &.btn {
-        padding: rem-calc((space(quarter) - 1) space(quarter));     // Not sure if this is solid enough, but because btns have borders, we need to subtract 1px top and bottom to preserve the baseline
+        padding: calc(space(quarter) - 1px) space(quarter);     // Not sure if this is solid enough, but because btns have borders, we need to subtract 1px top and bottom to preserve the baseline
       }
     }
 
@@ -71,7 +71,7 @@
   // spacer item in nav lists to justify groups of nav items
   &__spacer {
     flex: 1 0 auto;
-    min-width: rem-calc(space(half));
+    min-width: space(half);
   }
 
   // divider
@@ -109,7 +109,7 @@
 
   .nav__item {
     i {
-      padding: 0 rem-calc(space(quarter));
+      padding: 0 space(quarter);
     }
   }
 

@@ -4,7 +4,7 @@
 
 .card {
   width: 100%;                        /* follow parent width*/
-  padding: rem-calc(space(half));
+  padding: space(half);
   border: 1px solid color(divider);
 
   &__figure {

@@ -18,10 +18,10 @@
 
   .list__item {
     display: block;
-    // padding: rem-calc(space(quarter) 0);
+    // padding: space(quarter) 0);
 
     &:not(:last-child) {
-      margin: rem-calc(0 0 space(quarter));
+      margin: 0 0 space(quarter);
 //      border-bottom: 1px solid color(divider);
     }
 
@@ -43,8 +43,8 @@
 
   &--dividers {
     .list__item:not(:last-child) {
-      margin-right: rem-calc(space(quarter));
-      padding-right: rem-calc(space(quarter));
+      margin-right: space(quarter);
+      padding-right: space(quarter);
       border-right: 1px solid color(divider);
 
     }
@@ -63,8 +63,8 @@
     counter-increment: step-counter;
 
     &::before {
-      margin-right: rem-calc(space(quarter));
-      padding: rem-calc(space(quarter) space(half));
+      margin-right: space(quarter);
+      padding: space(quarter) space(half);
       border-radius: 3px;
 //      font-size: 80%;
       background-color: color(primary);

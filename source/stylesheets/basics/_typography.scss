@@ -39,7 +39,7 @@ h3,
 
 h4 {
   @include font-size(heading-4);
-  margin-bottom: rem-calc((space(quarter) - 1));
+  margin-bottom: calc(space(quarter) - 1px);
   border-bottom: 1px solid color(divider);
 }
 
@@ -80,7 +80,7 @@ h4,
 %lead {
 
     p+p {
-        margin-top: rem-calc(space(base));
+        margin-top: space(base);
     }
 
     a {

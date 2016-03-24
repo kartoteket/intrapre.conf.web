@@ -22,7 +22,7 @@ $table-hover-color:    color(accent, lighter);
     %tablecell,
     td,
     th {
-        padding: rem-calc(space(half));
+        padding: space(half);
         border-bottom: 1px solid $table-border-color;
         border-left: 1px solid $table-border-color;
         text-align: left;

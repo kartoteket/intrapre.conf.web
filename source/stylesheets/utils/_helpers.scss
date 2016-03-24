@@ -26,6 +26,11 @@
   white-space: nowrap;
 }
 
+.flex-right {
+  margin-left: auto;
+}
+
+
 // show/hide for breakpoint
 @each $bp, $width in $breakpoints {
 
@@ -104,9 +109,9 @@
 
     .soft--#{$edge} {
         @if $edge == 'all' {
-            padding: rem-calc(space(quarter));
+            padding: space(quarter);
         } @else {
-            padding-#{$edge}: rem-calc(space(quarter)) !important;
+            padding-#{$edge}: space(quarter) !important;
         }
     }
 

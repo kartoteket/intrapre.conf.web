@@ -22,7 +22,7 @@
     flex: 1 auto;       /* [2] */
 //        width: 90%;  Why this ??!?. Should rather be defined in context
     // margin: rem-calc(0 0 0 (space(quarter, true)));   /* might be useful to compensate for the padding */
-    padding: rem-calc(space(quarter) (space(base) * 1) space(quarter) space(quarter));  /* [4] */
+    padding: space(quarter) (space(base) * 1) space(quarter) space(quarter);  /* [4] */
     border: 1px solid transparent;
     resize: none;
     background-color: transparent;
@@ -52,7 +52,7 @@
   .edit-icon {
     position: absolute;
     right: 0;
-    padding: rem-calc(space(quarter));
+    padding: space(quarter);
     color: color(dividers);
     line-height: inherit;
     white-space: nowrap;

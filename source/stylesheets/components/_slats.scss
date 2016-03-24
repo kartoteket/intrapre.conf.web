@@ -10,13 +10,13 @@
 
   display: flex;
   justify-content: flex-start;
-  margin-bottom: rem-calc(space(base));
+  margin-bottom: space(base);
   padding: rem-calc(0 0 space(half) 0);
   border-bottom: 1px solid color(divider);
 
   &__item {
     flex: 1 auto;
-    padding: 0 rem-calc(space(base));
+    padding: 0 space(base);
 
     &:first-child {         // title -> 4 times as wide
       flex: 4 0 auto;
@@ -38,7 +38,7 @@
 
   &__spacer {
     flex: 1 1 auto;
-    min-width: rem-calc(space(base));
+    min-width: space(base);
   }
 
   &__label {

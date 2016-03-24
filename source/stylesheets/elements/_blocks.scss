@@ -7,9 +7,8 @@
   align-items: center;
   flex: 0 0 50%;
   width: 50%;
-  padding-top: rem-calc(40);
+  padding-top: rem-calc(30);
   padding-bottom: rem-calc(10);
-//  padding-bottom: 45%;
   background-color: color(primary);
   color: #fff;
   text-align: center;
@@ -17,7 +16,8 @@
   @include breakpoint(medium) {
     flex: 0 0 25%;
     width: 25%;
-  //  padding-bottom: 20%;
+    padding-top: rem-calc(40);
+    padding-bottom: rem-calc(10);
   }
 
   &:nth-child(2) {
@@ -39,6 +39,23 @@
     padding: 10px;
     border: 1px solid #fff;
     border-radius: 50%;
+
+    @include breakpoint(max medium) {
+      margin-bottom: space(half);
+    }
   }
+
+  > h2 {
+    font-weight: 300;
+  }
+
+  > .muted {
+    font-weight: 100;
+  }
+
+  .block__text {
+    @include font-size(18);
+  }
+
 
 }

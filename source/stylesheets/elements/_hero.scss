@@ -40,6 +40,8 @@
 }
 
 .hero__title {
+  font-family: $alt-font;
+  font-weight: 900;
   @include font-size(hero-title);
 }
 

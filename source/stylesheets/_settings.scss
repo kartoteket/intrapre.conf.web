@@ -12,7 +12,8 @@ $base-line-height   : 24; // 1.5
 /**
  * Type
  */
-$base-font          : "Fira Sans", "Helvetica Neue", Helvetica, Arial, sans serif;
+$base-font          : "Helvetica Neue", Helvetica, Arial, sans serif;
+$alt-font           : "Roboto", sans-serif;
 $base-font-weight   : 400;
 $mono-font          : "Fira Mono", "Lucida Console", "Lucida Sans Typewriter", monaco, "Bitstream Vera Sans Mono", monospace;
 
@@ -94,8 +95,8 @@ $font-sizes: (
       small: 30,
     ),
     heading-2 : (
-      null  : 19,
-      small: 25,
+      null  : 22,
+      medium: 32,
     ),
     heading-3 : (
       null  : 16,

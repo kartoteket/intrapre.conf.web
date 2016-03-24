@@ -46,7 +46,7 @@
 .hero__text {
   @include font-size(hero-text);
   margin: space(base) 0;
-  color: color(accent);
+  // color: color(accent);
 }
 
 .hero__details {

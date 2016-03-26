@@ -1,0 +1,66 @@
+.icon {
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	fill: currentColor;
+}
+
+/* =======================================================================================
+Example showing how to change the color/size of the icons:
+.icon-name {
+	font-size: 32px; // works because "width" & "height" were set using em units
+	color: red; // works for single-colored icons, because "fill" was set to "currentColor"
+}
+======================================================================================== */
+
+.icon-ticket {
+	width: 1.25em;
+}
+
+.icon-ticket2 {
+	width: 1.21875em;
+}
+
+.icon-ticket3 {
+	width: 1.25em;
+}
+
+.icon-podium {
+	width: 0.75em;
+}
+
+.icon-user {
+	width: 0.785713868836563em;
+}
+
+.icon-calendar2 {
+	width: 0.9285707051554937em;
+}
+
+.icon-phone {
+	width: 0.7857128540053964em;
+}
+
+.icon-twitter {
+	width: 0.9285703301429749em;
+}
+
+.icon-facebook {
+	width: 0.5881709158420563em;
+}
+
+.icon-globe {
+	width: 0.8571425850192682em;
+}
+
+.icon-group {
+	width: 1.071428755919138em;
+}
+
+.icon-envelope {
+	width: 1.0000022239983082em;
+}
+
+.icon-linkedin {
+	width: 0.8571429451305903em;
+}

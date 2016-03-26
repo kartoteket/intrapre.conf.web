@@ -69,11 +69,57 @@ title: Intraprenørdagene Home
     </div>
 </div>
 
+<section>
 
-<div class="section-title">
-    <h4><%= t('Speakers in Intraprenørdagene')%></h4>
-    <hr>
-</div>
+  <div class="section-title bg-color-background-shade">
+      <h4><%= t('Speakers in Intraprenørdagene')%></h4>
+      <hr>
+  </div>
+
+
+  <div class="speakers">
+    <div class="speaker speaker--large">
+      <a href="#" class="link-one">
+        <%= tag :img, :src => lorem.image('600x600'), :class => 'speaker__img'%>
+        <div class="speaker__txt">
+          <h2>Geoffrey Moore</h2>
+          <p><%= lorem.sentences 2 %></p>
+        </div>
+      </a>
+    </div>
+    <div class="speaker speaker--large">
+      <div class="speakers">
+        <div class="speaker speaker--medium">
+          <a href="#" class="link-two">
+            <%= tag :img, :src => lorem.image('600x300'), :class => 'speaker__img'%>
+            <div class="speaker__txt">
+              <h2>Geoffrey Moore</h2>
+              <p><%= lorem.sentences 2 %></p>
+            </div>
+          </a>
+        </div>
+        <div class="speaker speaker--small">
+          <a href="#" class="link-three">
+            <%= tag :img, :src => lorem.image('600x600'), :class => 'speaker__img'%>
+            <div class="speaker__txt">
+              <h2>Geoffrey Moore</h2>
+              <p><%= lorem.sentences 2 %></p>
+            </div>
+          </a>
+        </div>
+        <div class="speaker speaker--small">
+          <a href="#" class="link-four">
+            <%= tag :img, :src => lorem.image('600x600'), :class => 'speaker__img'%>
+            <div class="speaker__txt">
+              <h2>Geoffrey Moore</h2>
+              <p><%= lorem.sentences 2 %></p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <div class="section-title">
     <h4><%= t('Up Coming Events')%></h4>

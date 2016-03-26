@@ -39,8 +39,6 @@ h3,
 
 h4 {
   @include font-size(heading-4);
-  margin-bottom: calc(space(quarter) - 1px);
-  border-bottom: 1px solid color(divider);
 }
 
 .delta,
@@ -141,7 +139,7 @@ hr {
 
 .section-title {
 
-  padding: space(base) 0;
+  padding: space(double) 0;
   text-align: center;
 
   h4 {

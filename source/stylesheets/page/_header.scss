@@ -3,7 +3,8 @@
 \*------------------------------------*/
 
 /*
- * [1]   Must force this because safari on Iphone is a stupid, ignorant, bad exexcuse for a browser....
+ * [1]  Must force this because safari on Iphone is a stupid, ignorant, bad exexcuse for a browser....
+ * [2]  Must rise navbar above hero
  */
 
 
@@ -11,39 +12,35 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-
   position: absolute;
   width: 100%;
+  z-index: 1;     /* [2] */
 
   @include breakpoint(medium) {
     border-bottom: 1px solid rgba(255, 255, 255, .3);
   }
 //  min-height: rem-calc(70);                  /* [1] */
 
-  z-index: 1 /* rise above hero */
 }
 
 .site-nav {
 
   .nav__item a {
-
     padding: space(quarter);
+    border-right: 1px solid rgba(255, 255, 255, .3);
+    color: #fff;
+    text-transform: uppercase;
+    white-space: nowrap;
 
     @include breakpoint(medium) {
       padding: space(base);
     }
 
-    border-right: 1px solid rgba(255, 255, 255, .3);
-    color: #fff;
-    text-transform: uppercase;
-    white-space: nowrap;
   }
 
   .nav__item--active a,
   a:hover {
- // TODO
+    background-color: color(primary);
+    color: #fff;
   }
-}
-
-.account {
 }

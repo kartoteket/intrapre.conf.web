@@ -23,6 +23,7 @@
   /* ------------------------------------ */
 
   // nav item.
+  // hover styles are not genereic and set on each specific instance
   &__item {
 
     > span,  // the span is used for dropdowns...
@@ -34,10 +35,6 @@
       padding: space(quarter) space(half);
       color: inherit;
       line-height: inherit;
-
-      &:hover {
-        color: inherit;
-      }
 
       &.btn {
         padding: calc(space(quarter) - 1px) space(quarter);     // Not sure if this is solid enough, but because btns have borders, we need to subtract 1px top and bottom to preserve the baseline

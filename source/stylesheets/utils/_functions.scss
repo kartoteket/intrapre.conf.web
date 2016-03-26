@@ -112,13 +112,13 @@
         $color : darken($color, 30%);
       }
 
-
       @return $color;
 
     }
 
-    @warn "Unknown `#{$key}` in $colors.";
-    @return null;
+
+  @warn "Unknown `#{$key}` in $colors.";
+  @return null;
 }
 
 

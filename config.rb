@@ -20,15 +20,16 @@ page '/*.txt', layout: false
 
 # Reload the browser automatically whenever files change
 configure :development do
-  activate :livereload
+  activate :livereload do |live|
+    live.livereload_css_target = "stylesheets/main.css"
+    livereload_css_pattern = Regexp.new('_.*\.scss')
+  end
 end
 
 # Localization (i18n)
 activate :i18n,
     :mount_at_root => :no,
     :lang_map => { :en => :english }
-
-
 
 
 ###

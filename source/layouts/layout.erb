@@ -12,8 +12,6 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700,900' rel='stylesheet' type='text/css'>
 
     <%= stylesheet_link_tag :main %>
-    <%= javascript_include_tag :all %>
-
     <%= stylesheet_link_tag :svg %>
 
   </head>
@@ -49,9 +47,13 @@
 
 
     <footer class="site-footer">
-      
+
     </footer>
 
+
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=blissfuljs"></script>
+    <%= javascript_include_tag :bliss %>
+    <%= javascript_include_tag :all %>
 
   </body>
 

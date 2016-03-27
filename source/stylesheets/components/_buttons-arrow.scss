@@ -20,9 +20,36 @@
 
   @if($color == accent) {
     color: #fff;
+
+    &:hover {
+      background-color: color(primary) !important;
+      color: #fff;
+
+      &::after {
+        @if($direction == right) {
+          border-left-color: color(primary);
+        }
+      }
+    }
   }
 
-  &:after {
+  @if($color == primary) {
+    color: #fff;
+
+    &:hover {
+      background-color: color(accent) !important;
+      color: #fff;
+
+      &::after {
+        @if($direction == right) {
+          border-left-color: color(accent);
+        }
+      }
+    }
+  }
+
+
+  &::after {
     position: absolute;
     width: 0;
     height: 0;

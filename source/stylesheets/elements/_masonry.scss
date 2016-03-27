@@ -12,6 +12,7 @@
     position: relative;
     outline: space(half) solid color(background-shade);
     color: #fff;
+    overflow: hidden;
 
     &:hover::after {
       position: absolute;
@@ -38,6 +39,7 @@
   }
 
   @include breakpoint(medium) {
+
     &--large {
       flex: 1 50%;
     }
@@ -56,67 +58,29 @@
   }
 
   &__txt {
+
     position: absolute;
-    bottom: 0;
-    padding: space(base);
     z-index: 2;
+
+    // only small
+    @include breakpoint(max medium) {
+      top: space(double);
+      max-width: 60%;
+
+      h2 {
+        display: inline-block;
+        padding: space(half) space(base);
+        background-color: color(primary);
+      }
+
+      p {
+        padding: space(half) space(base);
+      }
+    }
+
+    @include breakpoint(medium) {
+      bottom: 0;
+      padding: space(base);
+    }
   }
-
 }
-
-// .height-50\% {
-//   background-color: cyan;
-//   flex: 1 0 50%;
-// }
-
-// .speakers {
-
-//   @include breakpoint(max medium) {
-
-//     .grid__item {
-//       flex: 1 0 100%;
-//     }
-
-//     img {
-//       height: 380px;  // TEMP
-//     }
-//   }
-
-// .grid {
-//   justify-content: space-between;
-// }
-
-
-// }
-
-
-// .speaker {
-//   display: flex;
-//   flex-direction: column;
-//   position: relative;
-//   color: #fff;
-//   overflow: hidden;
-//   background-size: cover;
-
-//   &--large {
-//     width: 50vw;
-//     height: 50vw;
-//   }
-
-//   &--medium {
-//     width: 50vw;
-//     height: 25vw;
-//   }
-
-//   &--small {
-//     width: 25vw;
-//     height: 25vw;
-//   }
-
-//   &__txt {
-//     position: absolute;
-//     bottom: 0;
-//     padding: space(base);
-//     z-index: 2;
-//   }
-// }

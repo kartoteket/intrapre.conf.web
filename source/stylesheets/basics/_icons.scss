@@ -43,6 +43,15 @@
   &--rotate {
     animation: spin .75s linear infinite;
   }
+
+  // add white solid circle background
+  &--circle-solid {
+    padding: .3em;
+    border-radius: 50%;
+    background-color: #fff;
+    box-sizing: initial;
+  }
+
 }
 
 // echo color modfier classes
@@ -58,22 +67,15 @@
 }
 
 
-.icon-circle {
-  display: inline-block;
-  position: relative;
-  // width: 125%;
-  // height: 125%;
-  padding: .3em;
-  border: 1px solid #fff;
-  border-radius: 50%;
-  background-color: #fff;
-  text-align: center;
-  vertical-align: middle;
-
-  // > .icon {
-  //   top: 15%;
-  // }
-}
+// .icon-circle {
+//   display: inline-block;
+//   position: relative;
+//   padding: .3em;
+//   border-radius: 50%;
+//   background-color: #fff;
+//   text-align: center;
+//   vertical-align: middle;
+// }
 
 
 

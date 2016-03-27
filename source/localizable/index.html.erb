@@ -72,7 +72,6 @@ title: Intraprenørdagene Home
       <hr>
   </div>
 
-
   <div class="speakers">
     <div class="speaker speaker--large">
       <a href="#" class="link-one">
@@ -117,15 +116,57 @@ title: Intraprenørdagene Home
   </div>
 </section>
 
-<div class="section-title">
-    <h4><%= t('Up Coming Events')%></h4>
-    <hr>
-</div>
+<section>
+  <div class="section-title">
+      <h4><%= t('Up Coming Events')%></h4>
+      <hr>
+  </div>
+</section>
 
-<div class="section-title">
-    <h4><%= t('Get Your Tickets')%></h4>
-    <hr>
-</div>
+<section>
+  <div class="section-title">
+      <h4><%= t('Get Your Tickets')%></h4>
+      <hr>
+  </div>
+
+  <div class="page-wrapper">
+    <ul class="tickets">
+      <li>
+        <ul class="ticket">
+          <li class="ticket__title">Conference Ticket : Inovation Conferance</li>
+          <li class="ticket__price">$399 / £260</li>
+          <li class="ticket__cta">
+            <svg class="icon icon-ticket"><use xlink:href="#icon-ticket2"></use></svg>
+            Buy Your Ticket
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <ul class="ticket">
+          <li class="ticket__title">Conference Ticket : Inovation Conferance</li>
+          <li class="ticket__price">$399 / £260</li>
+          <li class="ticket__cta ticket__cta--soldout">
+            <svg class="icon icon-ticket"><use xlink:href="#icon-ticket2"></use></svg>
+            Buy Your Ticket
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <button class="tickets__cta">
+      <%= t('book your ticket')%>
+    </button>
+
+    <div>
+      <p>Alle priser er eks. MVA.</p>
+      <p>Billettsalg åpner den 4. april. Vi forventer at konferansen blir utsolgt. Ved å forhåndsreservere billett er du sikker på at du får mulighet til å kjøpe billett og får du også 20% rabatt.</p>
+      <p>Billetten din gir tilgang til alle tracks, begge dager + middag og prisutdeling på kvelden den 9. mai</p>
+    </div>
+  </div>
+</section>
+
+
 
 <!--
 <div class="welcome">

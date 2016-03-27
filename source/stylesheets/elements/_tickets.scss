@@ -1,0 +1,63 @@
+.tickets {
+  @extend %block-list;
+
+  @include breakpoint(max medium) {
+    margin: 0 space(base, true);
+  }
+
+
+  > li:nth-child(odd) {
+    background: color(background-shade);
+  }
+
+  > li:nth-child(even) {
+    background: color(background-pink);
+  }
+}
+
+.ticket {
+  @extend %unstyled-list;
+  display: flex;
+  justify-content: flex-end;
+
+  &__title,
+  &__price,
+  &__cta {
+    padding: space(base);
+  }
+
+  &__title {
+    margin-right: auto;
+  }
+
+  &__price {
+    color: color(accent);
+    font-weight: 700;
+  }
+
+  &__cta {
+    position: relative;
+    padding-right: 0;
+    color: #fff;
+
+    .icon {
+      position: absolute;
+      top: -20px;
+      left: 0;
+      width: 100%;
+      height: 150%;
+      color: color(primary);
+    }
+
+    &--soldout {
+      .icon {
+        color: color(accent);
+      }
+    }
+  }
+}
+
+.tickets__cta {
+  @include arrow-button(right, 40, primary);
+  margin: space(base) 0;
+}

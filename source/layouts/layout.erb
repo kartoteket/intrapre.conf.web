@@ -46,16 +46,50 @@
 
     <%= yield %>
 
+    <ul class="social-links text--center horisontal-list ">
+      <li class="icon-facebook"><svg class="icon icon-facebook"><use xlink:href="#icon-facebook"></use></svg></li>
+      <li class="icon-twitter"><svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg></li>
+      <li class="icon-linkedin"><svg class="icon icon-linkedin"><use xlink:href="#icon-linkedin"></use></svg></li>
+    </ul>
 
     <footer class="site-footer">
-
-      <ul class="social-links text--center horisontal-list ">
-        <li class="icon-facebook"><svg class="icon icon-facebook"><use xlink:href="#icon-facebook"></use></svg></li>
-        <li class="icon-twitter"><svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg></li>
-        <li class="icon-linkedin"><svg class="icon icon-linkedin"><use xlink:href="#icon-linkedin"></use></svg></li>
-      </ul>
-
+      <div class="page-wrapper">
+        <div class="grid grid--medium--vertical">
+          <div class="grid__item site-footer__links">
+            <h3><%= t('quick links')%></h3>
+            <ul>
+              <li><%= link_to t('links.Konferansen'), 'http://mysite.com' %></li>
+              <li><%= link_to t('links.Call for Papers'), 'http://mysite.com' %></li>
+              <li><%= link_to t('links.Nominer'), 'http://mysite.com' %></li>
+            </ul>
+          </div>
+          <div class="grid__item site-footer__info">
+            <h3><%= t('contact info')%></h3>
+            <ul>
+              <li>
+                <span class="icon-circle"><svg class="icon icon-location"><use xlink:href="#icon-location"></use></svg></span>
+                <%= link_to t('contact.adr'), 'http://mysite.com' %>
+              </li>
+              <li>
+                <span class="icon-circle"><svg class="icon icon-envelope"><use xlink:href="#icon-envelope"></use></svg></span>
+                <%= link_to t('contact.email'), 'http://mysite.com' %>
+              </li>
+              <li>
+                <span class="icon-circle"><svg class="icon icon-phone"><use xlink:href="#icon-phone"></use></svg></span>
+                <%= link_to t('contact.phone'), 'http://mysite.com' %>
+              </li>
+            </ul>
+          </div>
+          <div class="grid__item site-footer__newsletter">
+            <h3><%= t('newsletter')%></h3>
+            <ul>
+              <li></li>
+            </ul>
+          </div>
+        </div>
     </footer>
+
+    <div class="text--center helper padded-double"><%= t('notice')%></div>
 
 
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=blissfuljs"></script>

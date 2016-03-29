@@ -1,0 +1,31 @@
+
+.social-links {
+  margin: space(double 0);
+
+  li {
+    margin-right: space(half);
+    padding: 1em;
+    border: 1px solid color(divide);
+    border-radius: 50%;
+
+    &.icon-facebook {
+      border-color: color(facebook-blue);
+      color: color(facebook-blue);
+    }
+
+    &.icon-twitter {
+      border-color: color(twitter-blue);
+      color: color(twitter-blue);
+    }
+
+    &.icon-linkedin {
+      border-color: color(linkedin-blue);
+      color: color(linkedin-blue);
+    }
+
+    .icon {
+      top: 0;
+      font-size: 2.5em;
+    }
+  }
+}

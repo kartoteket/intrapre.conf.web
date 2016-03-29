@@ -5,7 +5,8 @@
 .card {
   width: 100%;                        /* follow parent width*/
   padding: space(half);
-  border: 1px solid color(divider);
+  // border: 1px solid color(divider);
+
 
   &__figure {
     color: color(primary);

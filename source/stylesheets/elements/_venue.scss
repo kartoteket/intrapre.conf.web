@@ -1,0 +1,33 @@
+
+.venue__card {
+  width: auto;
+  position: relative;
+
+  @include breakpoint(medium) {
+    left: space(quadruple);
+    box-shadow: 0 0 2px rgba(0, 0, 0, .12), 0 2px 4px rgba(0, 0, 0, .24); /* stolen from googles inbox / material design */
+  }
+  background-color: #fff;
+}
+
+
+.venue__details {
+
+  @extend %unstyled-list;
+
+  > li {
+    margin-bottom: space(half);
+  
+    @include  breakpoint(medium) {
+      display: inline-block;
+      padding-right: space(half);
+      font-weight: 700;
+    }
+  }
+}
+
+.venue__cta {
+  @include arrow-button(right, 40, primary);
+  margin: space(base) 0;
+}
+

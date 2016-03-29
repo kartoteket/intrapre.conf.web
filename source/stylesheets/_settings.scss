@@ -136,7 +136,9 @@ $spacings : (
     base    : $base-line-height,
     quarter : $base-line-height / 4,
     half    : $base-line-height / 2,
-    double  : $base-line-height * 2
+    double  : $base-line-height * 2,
+    triple  : $base-line-height * 3,
+    quadruple  : $base-line-height * 4
 );
 
 

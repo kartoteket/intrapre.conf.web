@@ -117,10 +117,44 @@ title: Intraprenørdagene Home
 </section>
 
 <section>
+
   <div class="section-title">
       <h4><%= t('Up Coming Events')%></h4>
       <hr>
   </div>
+
+  <div class="page-wrapper">
+
+  <div class="grid grid--valign-middel grid--medium--vertical">
+    <div class="grid__item">
+
+      <div class="card venue__card">
+        <h2 class="show-for-medium-up">VENUE</h2>
+        <ul class="venue__details">
+          <li>
+              <svg class="icon icon-location icon--circle-border"><use xlink:href="#icon-location"></use></svg>
+            Hotell Scandic Fornebu
+          </li>
+          <li>
+              <svg class="icon icon-calendar icon--circle-border"><use xlink:href="#icon-calendar"></use></svg>
+            9. - 10. mai 2016
+          </li>
+        </ul>
+        <p><%= t('venue-desc')%></p>
+
+        <button class="venue__cta">
+          <%= t('book your ticket')%>
+        </button>
+
+      </div>
+    </div>
+
+    <div class="grid__item">
+      <%= image_tag "venue.png", {class: 'venue__img'} %>
+    </div>
+
+  </div>
+
 </section>
 
 <section>

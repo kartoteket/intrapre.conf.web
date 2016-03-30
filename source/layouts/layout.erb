@@ -63,7 +63,7 @@
               <li><%= link_to t('links.Nominer'), 'http://mysite.com' %></li>
             </ul>
           </div>
-          <div class="grid__item site-footer__info">
+          <div class="grid__item site-footer__contact">
             <h3><%= t('contact info')%></h3>
             <ul>
               <li>
@@ -82,9 +82,17 @@
           </div>
           <div class="grid__item site-footer__newsletter">
             <h3><%= t('newsletter')%></h3>
-            <ul>
-              <li></li>
-            </ul>
+            <p>Advance reservation ticket with 20% discount</p>
+            <form>
+              <div class="field-wrapper--inline">
+                  <label for="email">
+                    <svg class="icon icon-envelope"><use xlink:href="#icon-envelope"></use></svg>
+                  </label>
+                  <input type="email" placeholder="Enter your email for our newsletter">
+                  <button>Submit</button>
+              </div>
+
+            </form>
           </div>
         </div>
     </footer>

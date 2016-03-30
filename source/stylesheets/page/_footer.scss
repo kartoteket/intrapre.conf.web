@@ -18,9 +18,9 @@
   // padding-top: space(base);
 
   h3 {
+    @include font-size(28);
     margin-bottom: space(base);
     font-weight: 100;
-    @include font-size(28);
   }
 
   ul {
@@ -45,7 +45,9 @@
     .icon {
       top: 0;
     }
+  }
 
+  &__contact {
     a {
       display: inline-block;
       vertical-align: middle;
@@ -57,11 +59,13 @@
   //   flex: 1;
   // }
 
-  // &__info {
+  // &__contact {
   //   flex: 1;
   // }
 
   &__newsletter {
     flex: 2 !important;
   }
+
+
 }

@@ -6,7 +6,12 @@
         <p class="speaker__desc"><%= speaker.description %></p>
         <div class="speaker__rollover">
             <hr>
-            <%= speaker.text %>
+
+            <% if locale.to_s == 'no' %>
+              <%= speaker.text_no %>
+            <% else %>
+              <%= speaker.text_en %>
+            <% end %>
         </div>
       </div>
     </a>

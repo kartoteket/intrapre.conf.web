@@ -1,0 +1,13 @@
+machine:
+  ruby:
+    version: 2.3.0
+
+test:
+  override:
+    - echo "OK. We have no tests"
+
+deployment:
+  master:
+    branch: master
+    commands:
+      - git push dokku@app.iterate.no:www $CIRCLE_SHA1:master

@@ -1,11 +1,9 @@
 - name: David J. Bland
   position: 1
   description: "Breaking the Product Death Cycle"
-  text: "The life span of organizations is shorter than ever. Features are added to core products and yet no one cares. High retention, low satisfaction products are easily overtaken by startups who can scale globally like never before. In this talk, you'll hear how lean startup methods used by startups can also be adapted to your organization, without destroying your brand. You'll learn how companies like Toyota and Adobe are using lean startup to disrupt themselves, before being disrupted.<br />
-
-David har hatt stor suksess med smidige og lean teknikker i selskaper i Washington DC og San Francisco. Han startet i sitt første oppstartsselskap i 1999, og var med på å skalere det til et 13 millioner dollar oppkjøp i 2006.
-
-Nå lærerer han store organisasjoner, blant andre Toyota, hvordan de kan tenke som entreprenører, for å gi dem evnen å kunne skape disruptiv innovasjon."
+  text_en: "The life span of organizations is shorter than ever. Features are added to core products and yet no one cares. High retention, low satisfaction products are easily overtaken by startups who can scale globally like never before. In this talk, you'll hear how lean startup methods used by startups can also be adapted to your organization, without destroying your brand. You'll learn how companies like Toyota and Adobe are using lean startup to disrupt themselves, before being disrupted.<br />"
+  text_no: "<p>David har hatt stor suksess med smidige og lean teknikker i selskaper i Washington DC og San Francisco. Han startet i sitt første oppstartsselskap i 1999, og var med på å skalere det til et 13 millioner dollar oppkjøp i 2006.</p>
+            <p>Nå lærerer han store organisasjoner, blant andre Toyota, hvordan de kan tenke som entreprenører, for å gi dem evnen å kunne skape disruptiv innovasjon.</p>"
   img: davidbland
   bio:
   twitter:
@@ -15,18 +13,12 @@ Nå lærerer han store organisasjoner, blant andre Toyota, hvordan de kan tenke 
 - name: Tristan Kromer
   position: 2
   description: "The ROI of innovation"
-  text: "As product managers, we are often asked a single question when we propose a new product: What’s the Return on Investment (ROI)? What's the Net Present Value?
+  text_en: "<p>As product managers, we are often asked a single question when we propose a new product: What’s the Return on Investment (ROI)? What's the Net Present Value?</p>
+            <p>There has to be a Return on Investment (ROI) or we can’t get funding for the project. The details may vary, but the entire conversation makes no sense and has to stop. Finance and Product need a shared framework to stop talking about ROI and start talking about investing in Innovation Options for the future of their company.</p>
+            <p>This talk will focus on how to change the dialog and invest in innovation like an venture investor.</p>"
 
-There has to be a Return on Investment (ROI) or we can’t get funding for the project. The details may vary, but the entire conversation makes no sense and has to stop. Finance and Product need a shared framework to stop talking about ROI and start talking about investing in Innovation Options for the future of their company.
-
-This talk will focus on how to change the dialog and invest in innovation like an venture investor.
-
-Tristan har jobbet med store bedrifter som Swisscom, Pitney Bowes, Fujitsu og Linkedin. Han har laget Lean Startup programmer som "Build or Die Bootcamp" for TechBA (Mexico) og "Lean Reactor" (Belgia), i tillegg til å være en del av Luxr som har skapt en læreplan brukt av 13 akseleratorer internasjonalt, inkludert Singularity University, 500 Startups, og USA Innovation Fellows.
-
-Han er en erfaren foredragsholder og er ofte å se på scenen som foredragsholder, i paneler og som workshop fasilitator i det internationale Lean Startup miljøet."
-=======
-  description: "Breaking the Product Death Cycle"
-  text: "Sint fugit esse sint officiis dolor porro et neque deleniti. Aperiam possimus commodi nihil illum a id ad velit sed rerum quo dolorum excepturi. Quas soluta ut velit quo dolores asperiores maiores ipsa quibusdam."
+  text_no: "<p>Tristan har jobbet med store bedrifter som Swisscom, Pitney Bowes, Fujitsu og Linkedin. Han har laget Lean Startup programmer som "Build or Die Bootcamp" for TechBA (Mexico) og "Lean Reactor" (Belgia), i tillegg til å være en del av Luxr som har skapt en læreplan brukt av 13 akseleratorer internasjonalt, inkludert Singularity University, 500 Startups, og USA Innovation Fellows.</p>
+          <p>Han er en erfaren foredragsholder og er ofte å se på scenen som foredragsholder, i paneler og som workshop fasilitator i det internationale Lean Startup miljøet.</p>"
   img: davidbland
   bio:
   twitter:

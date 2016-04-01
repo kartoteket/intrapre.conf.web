@@ -6,7 +6,8 @@
   padding-top: space(double);
 
   .page-wrapper {
-    padding: space(double) 0;
+    padding-top: space(double);
+    padding-bottom: space(double);
     border-top: 1px solid color(divider);
     border-bottom: 1px solid color(divider);
   }

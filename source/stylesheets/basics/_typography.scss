@@ -51,7 +51,7 @@ h5 {
 }
 
 h1, h2, h3, h4, h5 {
-  font-weight: 500;
+  font-weight: 300;
 }
 
 
@@ -144,6 +144,7 @@ hr {
 
   h4 {
     color: color(header-text);
+    font-weight: 300;
     @include font-size(21);
     @include breakpoint(medium) {
       @include font-size(48);

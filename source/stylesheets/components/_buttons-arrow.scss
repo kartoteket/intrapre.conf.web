@@ -17,6 +17,7 @@
   position: relative;
   height: rem-calc($height);        /* [2] */
   background-color: color($color);
+  font-weight: 900;
 
   @if($color == accent) {
     color: #fff;

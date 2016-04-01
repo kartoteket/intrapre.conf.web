@@ -1,7 +1,11 @@
-- name: Geoffrey Moore
+- name: David J. Bland
   position: 1
-  description: "Zone to Win: Organizing to compete in an Age of Disruption"
-  text: "Sint fugit esse sint officiis dolor porro et neque deleniti. Aperiam possimus commodi nihil illum a id ad velit sed rerum quo dolorum excepturi. Quas soluta ut velit quo dolores asperiores maiores ipsa quibusdam."
+  description: "Breaking the Product Death Cycle"
+  text: "The life span of organizations is shorter than ever. Features are added to core products and yet no one cares. High retention, low satisfaction products are easily overtaken by startups who can scale globally like never before. In this talk, you'll hear how lean startup methods used by startups can also be adapted to your organization, without destroying your brand. You'll learn how companies like Toyota and Adobe are using lean startup to disrupt themselves, before being disrupted.<br />
+
+David har hatt stor suksess med smidige og lean teknikker i selskaper i Washington DC og San Francisco. Han startet i sitt første oppstartsselskap i 1999, og var med på å skalere det til et 13 millioner dollar oppkjøp i 2006.
+
+Nå lærerer han store organisasjoner, blant andre Toyota, hvordan de kan tenke som entreprenører, for å gi dem evnen å kunne skape disruptiv innovasjon."
   bio:
   twitter:
   facebook:

@@ -32,6 +32,13 @@ activate :i18n,
     :lang_map => { :en => :english }
 
 
+# Autoprefixer
+activate :autoprefixer do |config|
+  config.browsers = ['last 2 versions', 'Explorer >= 10']
+  config.ignore   = ['/stylesheets/hacks.css']
+end
+
+
 ###
 # Helpers
 ###

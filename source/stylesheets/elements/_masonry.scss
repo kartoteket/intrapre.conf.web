@@ -7,6 +7,14 @@
   flex: 1 100%;
   position: relative;
 
+  // create masonry grid
+  @include breakpoint(medium) {
+    &--large  {flex: 1 50%; }
+    &--medium {flex: 1 100%; }
+    &--small  {flex: 1 50%; }
+  }
+
+  // wrap all content in an a-tag for possible linking
   a {
     display: block;
     position: relative;
@@ -14,18 +22,28 @@
     color: #fff;
     overflow: hidden;
 
-    &:hover::after {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      background-color: color(primary);
-      content: " ";
-      opacity: .5;
-      z-index: 1;
+    // blue filter
+    &:hover {
+      &::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: color(primary);
+        content: " ";
+        opacity: .5;
+        z-index: 1;
+      }
+
+      // roll-over text
+      .speaker__rollover {
+        max-height: 300px;
+        opacity: 1;
+      }
     }
 
+    // differentiate positioning of blue filter
     @include breakpoint(medium) {
       &.link-one:hover::after,
       &.link-three:hover::after {
@@ -38,25 +56,12 @@
     }
   }
 
-  @include breakpoint(medium) {
-
-    &--large {
-      flex: 1 50%;
-    }
-
-    &--medium {
-      flex: 1 100%;
-    }
-
-    &--small {
-      flex: 1 50%;
-    }
-  }
-
+  // img
   &__img {
     display: block;
   }
 
+  // text
   &__txt {
 
     position: absolute;
@@ -67,20 +72,37 @@
       top: space(double);
       max-width: 60%;
 
-      h2 {
+      .speaker__title {
         display: inline-block;
         padding: space(half) space(base);
         background-color: color(primary);
       }
 
-      p {
+      .speaker__desc {
         padding: space(half) space(base);
       }
+
     }
 
+    // only large
     @include breakpoint(medium) {
       bottom: 0;
       padding: space(base);
+    }
+  }
+
+  // roll-over text
+  &__rollover {
+    max-height: 0;
+    transition: max-height .5s ease-in-out 0s, opacity .3s ease-in-out .1s;
+    opacity: 0;
+
+    hr {
+      width: 11%;
+      height: 2px;
+      margin: .75rem 0 0;
+      background-color: #fff;
+      color: #fff;
     }
   }
 }

@@ -73,46 +73,20 @@ title: Intraprenørdagene Home
   </div>
 
   <div class="speakers">
-    <div class="speaker speaker--large">
-      <a href="#" class="link-one">
-        <%= tag :img, :src => lorem.image('600x600'), :class => 'speaker__img'%>
-        <div class="speaker__txt">
-          <h2>Geoffrey Moore</h2>
-          <p><%= lorem.sentences 2 %></p>
-        </div>
-      </a>
-    </div>
+    <% data.speakers.find_all{ |s| s.position === 1 }.each do |speaker| %>
+        <%= partial "speaker", :object => speaker, :locals => {:size => 'large', :img => '600x600'}%>
+    <% end %>
     <div class="speaker speaker--large">
       <div class="speakers">
-        <div class="speaker speaker--medium">
-          <a href="#" class="link-two">
-            <%= tag :img, :src => lorem.image('600x300'), :class => 'speaker__img'%>
-            <div class="speaker__txt">
-              <h2>Geoffrey Moore</h2>
-              <p><%= lorem.sentences 2 %></p>
-            </div>
-          </a>
-        </div>
-        <div class="speaker speaker--small">
-          <a href="#" class="link-three">
-            <%= tag :img, :src => lorem.image('600x600'), :class => 'speaker__img'%>
-            <div class="speaker__txt">
-              <h2>Geoffrey Moore</h2>
-              <p><%= lorem.sentences 1 %></p>
-            </div>
-          </a>
-        </div>
-        <div class="speaker speaker--small">
-          <a href="#" class="link-four">
-            <%= tag :img, :src => lorem.image('600x600'), :class => 'speaker__img'%>
-            <div class="speaker__txt">
-              <h2>Geoffrey Moore</h2>
-              <p><%= lorem.sentences 1 %></p>
-            </div>
-          </a>
-        </div>
+        <% data.speakers.find_all{ |s| s.position === 2 }.each do |speaker| %>
+          <%= partial "speaker", :object => speaker, :locals => {:size => 'medium', :img => '600x300'}%>
+        <% end %>
+        <% data.speakers.find_all{ |s| s.position === 3 or s.position === 4  }.each do |speaker| %>
+          <%= partial "speaker", :object => speaker, :locals => {:size => 'small', :img => '600x600'}%>
+        <% end %>
       </div>
     </div>
+
   </div>
 </section>
 

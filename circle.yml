@@ -10,4 +10,4 @@ deployment:
   master:
     branch: master
     commands:
-      - git push dokku@app.iterate.no:www $CIRCLE_SHA1:master
+      - git push dokku@app.iterate.no:intrapenordagene $CIRCLE_SHA1:master

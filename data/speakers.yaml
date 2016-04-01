@@ -1,4 +1,5 @@
 - name: Geoffrey Moore
+  position: 1
   description: "Zone to Win: Organizing to compete in an Age of Disruption"
   bio:
   twitter:
@@ -6,6 +7,23 @@
   linkedin:
 
 - name: David J. Bland
+  position: 2
+  description: "Breaking the Product Death Cycle"
+  bio:
+  twitter:
+  facebook:
+  linkedin:
+
+- name: Geoffrey Moore
+  position: 3
+  description: "Zone to Win: Organizing to compete in an Age of Disruption"
+  bio:
+  twitter:
+  facebook:
+  linkedin:
+
+- name: David J. Bland
+  position: 4
   description: "Breaking the Product Death Cycle"
   bio:
   twitter:

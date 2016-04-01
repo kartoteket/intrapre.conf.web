@@ -35,7 +35,7 @@
             <% if locale.to_s == 'no' %>
               <%= link_to 'English', '/english/index.html', { :class => "bg-color-accent" } %>
             <% else %>
-              <%= link_to 'Norsk', '/index.html', { :class => "bg-color-accent" } %>
+              <a class="bg-color-accent" href="/">Norsk</a>
             <% end %>
           </li>
           <li class="nav__item show-for-medium-up"><a class="bg-color-primary" href=""><%= t('Book your ticket')%></a></li>

@@ -23,8 +23,8 @@
        -moz-appearance: none;
 }
 
-@mixin fade($property: background, $duration: .2s) {
-    transition: $property $duration ease-in-out 0s;
+@mixin fade($property: background, $duration: .2s, $delay: 0s) {
+    transition: $property $duration ease-in-out $delay;
 }
 
 

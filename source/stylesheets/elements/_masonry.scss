@@ -32,7 +32,7 @@
         left: 0;
         background-color: color(primary);
         content: " ";
-        opacity: .5;
+        opacity: .8;
         z-index: 1;
       }
 
@@ -71,36 +71,39 @@
     @include breakpoint(max medium) {
       top: space(double);
       max-width: 60%;
-
-      .speaker__title {
-        display: inline-block;
-        padding: space(half) space(base);
-        background-color: color(primary);
-      }
-
-      .speaker__desc {
-        padding: space(half) space(base);
-      }
-
     }
 
     // only large
     @include breakpoint(medium) {
       bottom: 0;
-      padding: space(base);
+//      padding: space(base);
     }
+  }
+
+  .speaker__title {
+    display: inline-block;
+    padding: space(half) space(base);
+    background-color: color(primary);
+    font-weight: 700;
+  }
+
+  .speaker__desc {
+    padding: space(half) space(base);
+    font-weight: 700;
   }
 
   // roll-over text
   &__rollover {
+    padding: space(half) space(base);
     max-height: 0;
     transition: max-height .5s ease-in-out 0s, opacity .3s ease-in-out .1s;
     opacity: 0;
+    font-weight: 400;
 
     hr {
       width: 11%;
       height: 2px;
-      margin: .75rem 0 0;
+      margin: 0 0 .75rem;
       background-color: #fff;
       color: #fff;
     }

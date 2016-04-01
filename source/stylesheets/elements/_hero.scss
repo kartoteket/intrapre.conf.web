@@ -37,19 +37,21 @@
 
 .hero__title {
   @include font-size(hero-title);
-  font-family: $alt-font;
+//  font-family: $alt-font;
   font-weight: 900;
 }
 
 .hero__text {
   @include font-size(hero-text);
   margin: space(base) 0;
+  font-weight: 700;
   // color: color(accent);
 }
 
 .hero__details {
 
   @extend %unstyled-list;
+  font-weight: 900;
 
   > li {
     margin-bottom: space(half);

@@ -37,26 +37,26 @@ title: Intraprenørdagene Home
 
 
 <!-- Blocks -->
-<div class="grid blocks">
-    <div class="grid__item block">
+<div class="blocks">
+    <div class="block">
         <svg class="icon icon-ticket"><use xlink:href="#icon-office"></use></svg>
         <h2><%= t('venue')%></h2>
         <div class="muted block__text show-for-medium-up">Scandic Fornebu</div>
         <div class="block__text show-for-medium-up">9th - 10th May 2016</div>
     </div>
-    <div class="grid__item block">
+    <div class="block">
         <svg class="icon icon-ticket"><use xlink:href="#icon-ticket"></use></svg>
         <h2><%= t('tickets')%></h2>
         <div class="muted block__text show-for-medium-up">&nbsp;</div>
         <div class="block__text show-for-medium-up">&nbsp;</div>
     </div>
-    <div class="grid__item block">
+    <div class="block">
         <svg class="icon icon-podium"><use xlink:href="#icon-podium"></use></svg>
         <h2><%= t('speakers')%></h2>
         <div class="muted block__text show-for-medium-up">&nbsp;</div>
         <div class="block__text show-for-medium-up">&nbsp;</div>
     </div>
-    <div class="grid__item block">
+    <div class="block">
         <svg class="icon icon-ticket"><use xlink:href="#icon-calendar"></use></svg>
         <h2><%= t('program')%></h2>
         <div class="muted block__text show-for-medium-up">&nbsp;</div>
@@ -98,10 +98,10 @@ title: Intraprenørdagene Home
 
   <div class="page-wrapper">
 
-  <div class="grid grid--valign-middel grid--medium--vertical">
-    <div class="grid__item">
+  <div class="venue">
+    <div class="venue__text">
 
-      <div class="card venue__card">
+      <div class="venue__card">
         <h2 class="show-for-medium-up">VENUE</h2>
         <ul class="venue__details">
           <li>
@@ -122,8 +122,8 @@ title: Intraprenørdagene Home
       </div>
     </div>
 
-    <div class="grid__item">
-      <%= image_tag "venue.png", {class: 'venue__img'} %>
+    <div class="venue__img">
+      <div><%= image_tag "venue.png", {class: 'venue__img'} %></div>
     </div>
 
   </div>
@@ -201,17 +201,3 @@ title: Intraprenørdagene Home
     </div>
   </div>
 </section>
-
-
-
-<!--
-<div class="welcome">
-  <div class="logo">
-    <%= image_tag "middleman-logo.svg" %>
-  </div>
-  <h1>Middleman is Running</h1>
-
-  <p class="doc">
-    <%= link_to "Read Documentation Online", "https://middlemanapp.com", target: "_blank" %>
-  </p></div>
-  -->

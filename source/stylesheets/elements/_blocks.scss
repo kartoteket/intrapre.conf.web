@@ -1,4 +1,11 @@
+.blocks {
+  display: flex;
+  flex-wrap: wrap;
 
+  @include breakpoint(medium) {
+    flex-wrap: nowrap;
+  }
+}
 
 .block {
   display: flex;
@@ -15,7 +22,7 @@
 
   @include breakpoint(medium) {
     flex: 0 0 25%;
-    width: 25%;
+    // width: 25%;
     padding-top: rem-calc(40);
     padding-bottom: rem-calc(10);
   }

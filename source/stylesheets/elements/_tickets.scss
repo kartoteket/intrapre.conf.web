@@ -18,7 +18,6 @@
 .ticket {
   @extend %unstyled-list;
   display: flex;
-  justify-content: flex-end;
 
   &__title,
   &__price,

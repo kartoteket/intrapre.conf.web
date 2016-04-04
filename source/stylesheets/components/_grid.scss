@@ -20,6 +20,10 @@ $grid-gutter-small  : round(space(half)) !default;
   /** alignments  */
   &--valign-middel {                     /* align center on cross axis */
     align-items: center;
+
+    .grid__item {
+      width: 100%;                       /* BUG for ie10-11: https://github.com/philipwalton/flexbugs/blob/master/README.md#2-column-flex-items-set-to-align-itemscenter-overflow-their-container*/
+    }
   }
 
   &--justified {

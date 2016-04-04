@@ -17,7 +17,7 @@ $debug-grid: false;
 @import "utils/functions";
 @import "utils/mixins";
 @import "utils/breakpoints";
-@import "utils/widths";
+//@import "utils/widths";
 
 
 /* ------------------ */
@@ -39,18 +39,18 @@ $debug-grid: false;
 /* ------------------ */
 /* Components         */
 /* ------------------ */
-@import "components/grid";
-@import "components/alerts";
+//@import "components/grid";
+//@import "components/alerts";
 @import "components/buttons";
 @import "components/buttons-arrow";
-@import "components/buttons-group";
+//@import "components/buttons-group";
 // @import "components/switch";
 @import "components/lists";
-@import "components/forms";
+//@import "components/forms";
 // @import "components/inline-edit";
 @import "components/nav";
 // @import "components/tables";
-@import "components/cards";
+//@import "components/cards";
 // @import "components/slats";
 // @import "components/panels";
 // @import "components/legend";            /* hvor skal jeg legge den tro ??!? */
@@ -73,5 +73,19 @@ $debug-grid: false;
 @import "utils/helpers";
 @import "utils/shame";
 
+/* ------------------ */
+/* Extras */
+/* ------------------ */
+.bg-color-accent {
+  background-color: #fd5822;
+}
+
+.bg-color-primary {
+  background-color: #26c9de;
+}
+
+.bg-color-background-shade {
+  background-color: #f3f3f3;
+}
 
 

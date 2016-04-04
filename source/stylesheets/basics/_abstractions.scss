@@ -71,20 +71,20 @@
 
 // }
 
-/**
- * dymo
- * inline block element, with inverted colors
- */
-.dymo {
-    display: inline-block;
-    padding: space(quarter);
-    background-color: color(primary-text);
-    color: color(background);
+// /**
+//  * dymo
+//  * inline block element, with inverted colors
+//  */
+// .dymo {
+//     display: inline-block;
+//     padding: space(quarter);
+//     background-color: color(primary-text);
+//     color: color(background);
 
-    // with links
-    &.active,
-    &:hover {
-        background-color: color(accent);
-        color: color(background);
-    }
-}
+//     // with links
+//     &.active,
+//     &:hover {
+//         background-color: color(accent);
+//         color: color(background);
+//     }
+// }

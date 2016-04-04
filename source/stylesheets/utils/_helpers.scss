@@ -1,8 +1,10 @@
 // Se også http://foundation.zurb.com/docs/utility-classes.html
 
 // create color classes
-@each $name, $value in $colors {
-  @include echo-colors($name, $value);
+@if($create-color-classes) {
+  @each $name, $value in $colors {
+    @include echo-colors($name, $value);
+  }
 }
 
 
@@ -40,36 +42,40 @@
 
   $next-bp : map-next($breakpoints, $bp);
 
-  .show-for-#{$bp}-up {
-    @extend %hide;
+  @if($create-show-classes) {
+    .show-for-#{$bp}-up {
+      @extend %hide;
 
-    @include breakpoint($bp) {
-      display: inline-block !important;
+      @include breakpoint($bp) {
+        display: inline-block !important;
+      }
+    }
+
+    .show-for-#{$bp}-only {
+      @extend %hide;
+      @if ($bp == 'small'){
+        @include breakpoint(max $bp) {
+          display: inline-block !important;
+        }
+      } @else {
+        @include breakpoint($bp $next-bp) {
+          display: inline-block !important;
+        }
+      }
     }
   }
 
-  .show-for-#{$bp}-only {
-    @extend %hide;
-    @if ($bp == 'small'){
-      @include breakpoint(max $bp) {
-        display: inline-block !important;
+  @if($create-hide-classes) {
+    .hide-for-#{$bp}-up {
+      @include breakpoint($bp) {
+        display: none !important;
       }
-    } @else {
+    }
+
+    .hide-for-#{$bp}-only {
       @include breakpoint($bp $next-bp) {
-        display: inline-block !important;
+        display: none !important;
       }
-    }
-  }
-
-  .hide-for-#{$bp}-up {
-    @include breakpoint($bp) {
-      display: none !important;
-    }
-  }
-
-  .hide-for-#{$bp}-only {
-    @include breakpoint($bp $next-bp) {
-      display: none !important;
     }
   }
 }
@@ -89,13 +95,13 @@
  *  -removes margins
  */
 @each $edge in $edges {
-    .flush--#{$edge} {
-        @if $edge == 'all' {
-            margin: 0 !important;
-        } @else {
-            margin-#{$edge}: 0 !important;
-        }
+  .flush--#{$edge} {
+    @if $edge == 'all' {
+      margin: 0 !important;
+    } @else {
+      margin-#{$edge}: 0 !important;
     }
+}
 }
 
 /**
@@ -103,22 +109,21 @@
  * - removes padding
  */
 @each $edge in $edges {
-    .hard--#{$edge} {
-        @if $edge == 'all' {
-            padding: 0 !important;
-        } @else {
-            padding-#{$edge}: 0 !important;
-        }
+  .hard--#{$edge} {
+    @if $edge == 'all' {
+      padding: 0 !important;
+    } @else {
+      padding-#{$edge}: 0 !important;
     }
+  }
 
-    .soft--#{$edge} {
-        @if $edge == 'all' {
-            padding: space(quarter);
-        } @else {
-            padding-#{$edge}: space(quarter) !important;
-        }
+  .soft--#{$edge} {
+    @if $edge == 'all' {
+      padding: space(quarter);
+    } @else {
+      padding-#{$edge}: space(quarter) !important;
     }
-
+  }
 }
 
 
@@ -163,25 +168,27 @@
  * - align texts
  */
 @each $direction in $directions {
-    %text--#{$direction},
-    .text--#{$direction} {
-        text-align: #{$direction} !important;
-    }
+  %text--#{$direction},
+  .text--#{$direction} {
+    text-align: #{$direction} !important;
+  }
 }
 
 /**
  * Alerts / States
  */
 //statuses
-.state,
-%state,
-.alert,
-%alert {
-    @each $key, $value in $states {
-        &--#{$key} {
-            background-color: color($value);
-        }
-    }
+@if($create-alert-classes){
+  .state,
+  %state,
+  .alert,
+  %alert {
+      @each $key, $value in $states {
+          &--#{$key} {
+              background-color: color($value);
+          }
+      }
+  }
 }
 
 
